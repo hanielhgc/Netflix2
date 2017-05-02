@@ -9,12 +9,14 @@
 
     <h:head>
         <title>JSF 2.0 Hello World</title>
+        <h:outputStylesheet library="css" name="Estilo.css"></h:outputStylesheet>
         
     
     </h:head>
-    <h:body>
+    <h:body class = "bgimg">
+    <h:messages class="alerta"></h:messages>
 		<h:form>
-			Login: <h:inputText value="#{usuario.login}"></h:inputText><br/>
+			Login: <h:inputText value="#{usuario.email}"></h:inputText><br/>
 			Senha: <h:inputSecret value="#{usuario.senha}"></h:inputSecret><br/>
 			<h:commandButton value="Enviar" action="saudacao"></h:commandButton>
 		</h:form>
