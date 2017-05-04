@@ -6,6 +6,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import beans.Usuario;
+import persistence.UsuarioDao;
 
 @ManagedBean
 @RequestScoped
@@ -25,7 +26,10 @@ public class UsuarioForm {
 	
 	
 	public String validar(){
-		if(usuario.getEmail().equals("ana") && usuario.getSenha().equals("123")){
+		Usuario usuario1 = new Usuario();
+		UsuarioDao udao = new UsuarioDao();
+		usuario1 = udao.buscarPorEmail(usuario.getEmail());
+		if(usuario != null && usuario.getSenha().equals(usuario1.getSenha())){
 			return "saudacao";
 		}else{
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário e/ou senha incorretos."));

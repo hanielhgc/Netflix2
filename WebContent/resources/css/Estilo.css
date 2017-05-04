@@ -1,5 +1,7 @@
 /* CSSTerm.com Simple CSS login form */
-
+.alerta {
+	color: red;
+}
 .login { 
 	height:110px;
 	width:190px;
@@ -13,11 +15,10 @@
 	margin:5px
  }
  
- .bgimg {
-	min-height: 100%;
-	background-position: center;
-	background-size: cover;
-}
- .bgimg {
-	background-image: url('Resource\\Login_BG.jpg')
+.bgimg {
+	color: blue;
+	min-height: 50%;
+	background-position: left;
+	background-size: 500px;
+	background-image: url("#{resource['img/Login_BG.jpg']}");
 }
