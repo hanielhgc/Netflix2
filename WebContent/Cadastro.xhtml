@@ -8,7 +8,7 @@
 
 
     <h:head>
-        <title>Netflix 2.0</title>
+        <title>Netflix 2.0 - Cadastro</title>
        <h:outputStylesheet library="css" name="Estilo.css"></h:outputStylesheet>
     </h:head>
     <h:body class = "bgimg">
@@ -17,8 +17,14 @@
 		<h:form>
 			E-mail: <h:inputText value="#{usuarioForm.usuario.email}"></h:inputText><br/>
 			Senha: <h:inputSecret value="#{usuarioForm.usuario.senha}"></h:inputSecret><br/>
-			<h:commandButton value="Enviar" action="#{usuarioForm.validar}"></h:commandButton><br/>
-			<a href="Cadastro.xhtml">Criar uma conta</a>
+			Nome: <h:inputText value="#{usuarioForm.usuario.nome}"></h:inputText>
+			Plano: <h:inputText value="#{usuarioForm.usuario.plano}"></h:inputText>  -->
+			Cartão:<h:inputText value="#{usuarioForm.usuario.cartao}"></h:inputText>
+		<!-- 	Perfil: <h:inputText value="#{usuarioForm.usuario.perfil}"></h:inputText> -->
+			
+			
+			<h:commandButton value="Enviar" action="#{usuarioForm.adicionar}"></h:commandButton><br/>
+			<a href="Login.xhtml">Voltar</a>
 		</h:form>
     </h:panelGrid>
     </h:body>

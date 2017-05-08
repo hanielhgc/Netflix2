@@ -1,14 +1,60 @@
 package persistence;
+import beans.Filme;
 import beans.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
 public class UsuarioDao {
+	
+	
+	/*
+	public List<String> emailAdministrador() {
+
+		Connection conexao = null;
+		PreparedStatement pstmt = null;
+		String sql = "select * from netflix.usuario where email like '%@netflix.%'";
+
+		try {
+
+			conexao = Conexao.getConnection();
+			pstmt = conexao.prepareStatement(sql);
+			
+			List<String> administradores = new ArrayList<String>();
+			String emailzinho = null;
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+
+				String email = rs.getString("email");
+				
+
+				//emailzinho = new Filme();
+				
+				
+				administradores.add(email);
+
+			}
+
+			rs.close();
+			pstmt.close();
+			return administradores;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+	
+	*/
+	
+	
 	
 	public Usuario buscarPorEmail(String mail) {
 		Connection conexao = null;
@@ -20,8 +66,29 @@ public class UsuarioDao {
 
 			conexao = Conexao.getConnection();
 			pstmt = conexao.prepareStatement(sql);
+			
+			
+			
 			pstmt.setString(1, mail);
 			ResultSet rs = pstmt.executeQuery();
+			
+			/*
+			if(mail.equals(null)){
+				
+				Usuario usuarionulo = new Usuario();
+
+				
+				usuarionulo.setEmail(" ");
+				usuarionulo.setSenha("");
+				usuarionulo.setNome(" ");
+				usuarionulo.setPlano(" ");
+				usuarionulo.setCartao(" ");
+				usuarionulo.setPerfil(" ");
+				
+				return usuarionulo;
+				
+			}else{
+			*/
 
 			if (rs.next()) {
 				
@@ -44,6 +111,7 @@ public class UsuarioDao {
 				usuario.setPerfil(perfil);
 				
 			}
+			//}
 
 			rs.close();
 			pstmt.close();
@@ -53,6 +121,7 @@ public class UsuarioDao {
 		}
 
 	}
+		
 	
 	
 	
