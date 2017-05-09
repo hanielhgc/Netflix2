@@ -18,7 +18,8 @@
 .bgimg {
 	color: white;
 	min-height: 50%;
+	background-repeat: no-repeat;
 	background-position: left;
-	background-size: 500px;
+	background-size: 2000px;
 	background-image: url("#{resource['img/Login_BG.jpg']}");
 }

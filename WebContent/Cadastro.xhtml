@@ -13,14 +13,18 @@
     </h:head>
     <h:body class = "bgimg">
     <h:messages class="alerta"></h:messages>
-		<h:panelGrid columns="3" cellpadding="100" width="50">
-		<h:form>
+		<h:panelGrid cellpadding="100" width="50">
+		<h:form style="width: 296px; ">
 			E-mail: <h:inputText value="#{usuarioForm.usuario.email}"></h:inputText><br/>
 			Senha: <h:inputSecret value="#{usuarioForm.usuario.senha}"></h:inputSecret><br/>
-			Nome: <h:inputText value="#{usuarioForm.usuario.nome}"></h:inputText>
-			Plano: <h:inputText value="#{usuarioForm.usuario.plano}"></h:inputText>  -->
-			Cartão:<h:inputText value="#{usuarioForm.usuario.cartao}"></h:inputText>
-		<!-- 	Perfil: <h:inputText value="#{usuarioForm.usuario.perfil}"></h:inputText> -->
+			Nome: <h:inputText value="#{usuarioForm.usuario.nome}"></h:inputText><br/>
+			Plano: <h:selectOneMenu value="#{usuarioForm.usuario.plano}">
+			<f:selectItem itemLabel="Basico" itemValue="Básico – R$22"></f:selectItem>
+			<f:selectItem itemLabel="Padrao" itemValue="Padrão – R$23"></f:selectItem>
+			<f:selectItem itemLabel="Premium" itemValue="Premium – R$30"></f:selectItem>
+			</h:selectOneMenu> <br/>	
+				Cartão: <h:inputText value="#{usuarioForm.usuario.cartao}"></h:inputText> <br/>
+		 	<!--  Perfil: --> <h:inputHidden value="#{usuarioForm.usuario.perfil}" itemValue ="Cliente"></h:inputHidden> 
 			
 			
 			<h:commandButton value="Enviar" action="#{usuarioForm.adicionar}"></h:commandButton><br/>

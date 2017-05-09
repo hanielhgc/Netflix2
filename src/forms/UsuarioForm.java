@@ -26,8 +26,8 @@ public class UsuarioForm {
 	
 	
 	public String adicionar(){
-		
-	Usuario usuario1 = new Usuario(usuario.getEmail(), usuario.getSenha(), usuario.getNome(), usuario.getPlano(), usuario.getCartao(), usuario.getPerfil());
+		usuario.setPerfil("Cliente");
+	//Usuario usuario1 = new Usuario(usuario.getEmail(), usuario.getSenha(), usuario.getNome(), usuario.getPlano(), usuario.getCartao(), usuario.getPerfil());
 		UsuarioDao udao = new UsuarioDao();
 		
 		if(usuario.getEmail().isEmpty() || usuario.getSenha().isEmpty() || usuario.getNome().isEmpty() || usuario.getPlano().isEmpty() || usuario.getCartao().isEmpty()){
@@ -38,7 +38,8 @@ public class UsuarioForm {
 		}else{
 		
 
-			udao.inserir(usuario1);
+			udao.inserir(usuario);
+
 			
 		
 			

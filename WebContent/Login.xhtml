@@ -13,13 +13,13 @@
     </h:head>
     <h:body class = "bgimg">
     <h:messages class="alerta"></h:messages>
-		<h:panelGrid columns="3" cellpadding="100" width="50">
+		<!--  <h:panelGrid columns="3" cellpadding="100" width="50" style="width: 828px; height: 389px; ">   -->
 		<h:form>
 			E-mail: <h:inputText value="#{usuarioForm.usuario.email}"></h:inputText><br/>
-			Senha: <h:inputSecret value="#{usuarioForm.usuario.senha}"></h:inputSecret><br/>
+			 Senha: <h:inputSecret value="#{usuarioForm.usuario.senha}"></h:inputSecret><br/>
 			<h:commandButton value="Enviar" action="#{usuarioForm.validar}"></h:commandButton><br/>
 			<a href="Cadastro.xhtml">Criar uma conta</a>
 		</h:form>
-    </h:panelGrid>
+ <!--    </h:panelGrid>  -->
     </h:body>
 </html>
