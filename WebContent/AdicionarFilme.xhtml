@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+
+
+    <h:head>
+        <title>Netflix 2.0 - Adicionar Filme</title>
+       <h:outputStylesheet library="css" name="Estilo.css"></h:outputStylesheet>
+    </h:head>
+    <h:body class = "bgimg">
+    <h:messages class="alerta"></h:messages>
+		<h:panelGrid cellpadding="100" width="50">
+		<h:form style="width: 296px; ">
+			
+			
+			<!-- talvez seja bom tornar a data de cadastro, quantidade de likes e dislikes não editável -->
+			ID: <h:inputText value="#{filmeForm.filme.id}"></h:inputText><br/>
+			Título: <h:inputText value="#{filmeForm.filme.titulo}"></h:inputText><br/>
+			Descrição: <h:inputText value="#{filmeForm.filme.descricao}"></h:inputText><br/>
+			Nome do Arquivo: <h:inputText value="#{filmeForm.filme.nome_arquivo}"></h:inputText><br/>
+			Nome da Capa: <h:inputText value="#{filmeForm.filme.nome_capa}"></h:inputText><br/> 
+			Duração: <h:inputText value="#{filmeForm.filme.duracao}"></h:inputText><br/>
+			Ano: <h:inputText value="#{filmeForm.filme.ano}"></h:inputText><br/>
+			Gênero: <h:inputText value="#{filmeForm.filme.genero}"></h:inputText><br/>
+			Atores: <h:inputText value="#{filmeForm.filme.atores}"></h:inputText><br/>
+			Data de Cadastro: <h:inputText value="#{filmeForm.filme.data_cadastro}"></h:inputText><br/>
+			Quantidade de Likes: <h:inputText value="#{filmeForm.filme.qtde_likes}"></h:inputText><br/>
+			Quantidade de Dislikes: <h:inputText value="#{filmeForm.filme.qtde_dislikes}"></h:inputText><br/>
+			
+			<h:commandButton value="Enviar" action="#{usuarioForm.adicionar}"></h:commandButton><br/>
+			<a href="saudacao.xhtml">Voltar</a>
+		</h:form>
+    </h:panelGrid>
+    </h:body>
+</html>
