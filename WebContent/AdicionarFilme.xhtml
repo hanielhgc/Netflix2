@@ -27,11 +27,17 @@
 			Ano: <h:inputText value="#{filmeForm.filme.ano}"></h:inputText><br/>
 			Gênero: <h:inputText value="#{filmeForm.filme.genero}"></h:inputText><br/>
 			Atores: <h:inputText value="#{filmeForm.filme.atores}"></h:inputText><br/>
-			Data de Cadastro: <h:inputText value="#{filmeForm.filme.data_cadastro}"></h:inputText><br/>
+			
+			<!-- 
+			Data de Cadastro: 
+			<h:inputText value="#{filmeForm.filme.data_cadastro}">
+				<f:convertDateTime pattern="dd/MM/yyyy"/>
+			</h:inputText><br/>
 			Quantidade de Likes: <h:inputText value="#{filmeForm.filme.qtde_likes}"></h:inputText><br/>
 			Quantidade de Dislikes: <h:inputText value="#{filmeForm.filme.qtde_dislikes}"></h:inputText><br/>
+			 -->
 			
-			<h:commandButton value="Enviar" action="#{usuarioForm.adicionar}"></h:commandButton><br/>
+			<h:commandButton value="Enviar" action="#{filmeForm.adicionar}"></h:commandButton><br/>
 			<a href="saudacao.xhtml">Voltar</a>
 		</h:form>
     </h:panelGrid>

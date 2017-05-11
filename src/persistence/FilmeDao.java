@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -235,7 +236,7 @@ public class FilmeDao {
 		Connection conexao = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "insert into filme (id, titulo, descricao, nome_arquivo, nome_capa, duracao, ano, genero, atores, data_cadastro, qtde_likes, qtde_dislikes) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into filme (id, titulo, descricao, nome_arquivo, nome_capa, duracao, ano, genero, atores, data_cadastro, qtde_likes, qtde_dislikes) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0)";
 
 		try {
 			conexao = Conexao.getConnection();
@@ -251,9 +252,7 @@ public class FilmeDao {
 			pstmt.setInt(7, filme.getAno());
 			pstmt.setString(8, filme.getGenero());
 			pstmt.setString(9, filme.getAtores());
-			pstmt.setTimestamp(3, new Timestamp(filme.getData_cadastro().getTime()));
-			pstmt.setInt(11, filme.getQtde_likes());
-			pstmt.setInt(12, filme.getQtde_dislikes());
+			pstmt.setTimestamp(10, new Timestamp(new Date().getTime()));
 			
 			
 			pstmt.executeUpdate();

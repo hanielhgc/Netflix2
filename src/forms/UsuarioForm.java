@@ -25,6 +25,15 @@ public class UsuarioForm {
 	}
 	
 	
+	public String logout(){
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "Login";
+		
+	}
+	
+	
+	
+	
 	public String adicionar(){
 		usuario.setPerfil("Cliente");
 	//Usuario usuario1 = new Usuario(usuario.getEmail(), usuario.getSenha(), usuario.getNome(), usuario.getPlano(), usuario.getCartao(), usuario.getPerfil());
@@ -74,6 +83,9 @@ public class UsuarioForm {
 		}
 		
 		if(usuario.getEmail() != null && usuario != null && usuario.getSenha().equals(usuario1.getSenha())){
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuarioLogado", usuario1);
+			
+			
 			if(usuario1.getPerfil().equals("Administrador")){
 				return "InicioAdministrador";
 				}else{
