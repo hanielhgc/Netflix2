@@ -31,7 +31,10 @@ public class UsuarioForm {
 		
 	}
 	
-	
+	public String nome(){
+		
+		return usuario.getNome();
+	}
 	
 	
 	public String adicionar(){
@@ -87,10 +90,10 @@ public class UsuarioForm {
 			
 			
 			if(usuario1.getPerfil().equals("Administrador")){
-				return "InicioAdministrador";
+				return "InicioUsuario";
 				}else{
 			
-					return "InicioCliente";
+					return "InicioUsuario";
 					}
 		
 			
