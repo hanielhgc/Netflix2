@@ -26,10 +26,14 @@ public class UsuarioForm {
 	
 	
 	public String logout(){
+		
+		
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "Login";
 		
 	}
+	
+	
 	
 	public String nome(){
 		
@@ -75,7 +79,7 @@ public class UsuarioForm {
 		usuario1 = udao.buscarPorEmail(usuario.getEmail());
 		
 		try {
-			System.out.println(usuario1.getEmail());
+			System.out.println(usuario1.getPerfil());
 		} catch (NullPointerException e) {
 			
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário e/ou senha incorretos."));
@@ -90,7 +94,7 @@ public class UsuarioForm {
 			
 			
 			if(usuario1.getPerfil().equals("Administrador")){
-				return "InicioUsuario";
+				return "InicioAdministrador";
 				}else{
 			
 					return "InicioUsuario";
