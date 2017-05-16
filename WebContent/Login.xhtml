@@ -5,48 +5,51 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
 
-<link type="text/css" rel="stylesheet"
-	href="https://www.w3schools.com/w3css/4/w3.css"/>
-	<link type="text/css" rel="stylesheet"
-		href="https://fonts.googleapis.com/css?family=Poppins"/>
-		<link type="text/css" rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-<link type="text/css" rel="stylesheet" href="Modal_Style.css"/>
+
 <h:head>
 	<title>Netflix 2.0</title>
+
 	<h:outputStylesheet library="css" name="Estilo.css"></h:outputStylesheet>
+
+	<link type="text/css" rel="stylesheet"
+		href="https://www.w3schools.com/w3css/4/w3.css"></link>
+	<link type="text/css" rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Poppins"></link>
+	<link type="text/css" rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+	<link type="text/css" rel="stylesheet" href="Modal_Style.css"></link>
+
 </h:head>
 
 <h:body class="w3-content w3-black bgimg" style="max-width:1500px;"
 	width="1500" height="1000">
+	
 	<h:messages class="alerta"></h:messages>
 
-	<header>
 	<div class="w3-display-left w3-padding" style="width: 35%">
 		<div
 			class="w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large">
 			<h1 class="w3-xlarge">Login</h1>
-		<hr class="w3-opacity"/>
-				<p>
-					<h:form>
+			<hr class="w3-opacity" />
+			<p>
+				<h:form>
 			E-mail: <h:inputText value="#{usuarioForm.usuario.email}"
-							class="w3-input w3-padding-16 w3-border" placeholder="E-mail"
-							required="true"></h:inputText>
+						class="w3-input w3-padding-16 w3-border" placeholder="E-mail"
+						required="true"></h:inputText>
 			 Senha: <h:inputSecret value="#{usuarioForm.usuario.senha}"
-							class="w3-input w3-padding-16 w3-border" placeholder="Senha"
-							required="true"> </h:inputSecret>
-						<p>
-							<h:commandButton value="Enviar" action="#{usuarioForm.validar}"
-								class="w3-button w3-block w3-green w3-round">Submit<i
-									class="fa fa-paper-plane"></i>
-							</h:commandButton>
-						</p>
-						<a href="Cadastro.xhtml">Criar uma conta</a>
-					</h:form>
-				</p>
+						class="w3-input w3-padding-16 w3-border" placeholder="Senha"
+						required="true">
+					</h:inputSecret>
+					<p>
+						<h:commandButton value="Enviar" action="#{usuarioForm.validar}"
+							class="w3-button w3-block w3-green w3-round"><i
+								class="fa fa-paper-plane"></i>
+						</h:commandButton>
+					</p>
+					<a href="Cadastro.xhtml">Criar uma conta</a>
+				</h:form>
+			</p>
 		</div>
 	</div>
-	</header>
-	<!--    </h:panelGrid>  -->
 </h:body>
 </html>
