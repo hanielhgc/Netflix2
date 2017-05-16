@@ -1,25 +1,37 @@
-/* CSSTerm.com Simple CSS login form */
-.alerta {
-	color: red;
-}
-.login { 
-	height:110px;
-	width:190px;
-	margin:auto;
-	border:1px #CCC solid;
-	padding:10px;
+body,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Poppins", sans-serif
 }
 
-.login input { 
-	padding:5px;
-	margin:5px
- }
- 
+body {
+    font-size: 16px;
+}
+
+img {
+    margin-bottom: -8px;
+}
+
+.mySlides {
+    display: none;
+}
+
+.w3-image {
+    max-width: 100%;
+    height: auto
+}
+
+a {
+    color: inherit
+}
+
 .bgimg {
-	color: white;
-	min-height: 50%;
-	background-repeat: no-repeat;
-	background-position: left;
-	background-size: 2000px;
-	background-image: url("#{resource['img/Login_BG.jpg']}");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-image: url("#{resource['img/Login_BG01.jpg']}");
+    max-width: 100%;
+    height: auto
 }
