@@ -10,7 +10,9 @@
     </h:head>
     <h:body>
     <!-- Nenum dos dois abaixo está funcionando -->
-		Olá, <h:outputText value="#{usuario.usuarioForm.nome}"></h:outputText>
+    <h:form>
+		Olá, <h:outputText value="#{usuarioLogado.nome}"></h:outputText>
 		<h:commandButton value="Logout" action="#{usuarioForm.logout}"></h:commandButton><br/>
+    </h:form>
     </h:body>
 </html>
