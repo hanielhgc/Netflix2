@@ -3,7 +3,8 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 
 
@@ -22,8 +23,8 @@
 	
 </h:head>
 
-<h:body class="w3-content w3-black bgimg" style="max-width:1500px;"
-	width="1500" height="1000">
+<h:body class="w3-content w3-black bgimgsu " style="max-width:1500px;"
+	width="1500" >
 	
 	<h:messages class="alerta"></h:messages>
 	
@@ -35,23 +36,23 @@
 			<p>
 	
 		<h:form>
-			E-mail: <h:inputText value="#{usuarioForm.usuario.email}" class="w3-input w3-padding-16 w3-border" placeholder="E-mail"
+			E-mail: <h:inputText value="#{usuarioForm.usuario.email}" class="w3-input w3-padding-16 w3-border" pt:placeholder="E-mail"
 						required="true"></h:inputText>
 			<br />
-			Senha: <h:inputSecret value="#{usuarioForm.usuario.senha}" class="w3-input w3-padding-16 w3-border" placeholder="Senha"
+			Senha: <h:inputSecret value="#{usuarioForm.usuario.senha}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Senha"
 						required="true"></h:inputSecret>
 			<br />
-			Nome: <h:inputText value="#{usuarioForm.usuario.nome}" class="w3-input w3-padding-16 w3-border" placeholder="Nome"
+			Nome: <h:inputText value="#{usuarioForm.usuario.nome}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Nome"
 						required="true"></h:inputText>
 			<br />
-			Plano: <h:selectOneMenu value="#{usuarioForm.usuario.plano}" class="w3-input w3-padding-16 w3-border" placeholder="Plano"
-						required="true">
+			Plano: <h:selectOneMenu value="#{usuarioForm.usuario.plano}" class="w3-input w3-padding-16 w3-border" required="true">
+	<!-- 		<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Plano" itemValue="null" itemDisabled="true"></f:selectItem> -->		
 				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Basico" itemValue="Básico – R$22"></f:selectItem>
 				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Padrao" itemValue="Padrão – R$23"></f:selectItem>
 				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Premium" itemValue="Premium – R$30"></f:selectItem>
 			</h:selectOneMenu>
 			<br />	
-				Cartão: <h:inputText value="#{usuarioForm.usuario.cartao}" class="w3-input w3-padding-16 w3-border" placeholder="Cartão"
+				Cartão: <h:inputText value="#{usuarioForm.usuario.cartao}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Cartão"
 						required="true"></h:inputText>
 			<br />
 			<!--  Perfil: -->

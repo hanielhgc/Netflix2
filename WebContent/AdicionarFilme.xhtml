@@ -2,33 +2,80 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
-      
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 
-    <h:head>
-        <title>Netflix 2.0 - Adicionar Filme</title>
-       <h:outputStylesheet library="css" name="Estilo.css"></h:outputStylesheet>
-    </h:head>
-    <h:body class = "bgimg">
-    <h:messages class="alerta"></h:messages>
-		<h:panelGrid cellpadding="100" width="50">
-		<h:form style="width: 296px; ">
-			
-			
-			<!-- talvez seja bom tornar a data de cadastro, quantidade de likes e dislikes não editável -->
-			ID: <h:inputText value="#{filmeForm.filme.id}"></h:inputText><br/>
-			Título: <h:inputText value="#{filmeForm.filme.titulo}"></h:inputText><br/>
-			Descrição: <h:inputText value="#{filmeForm.filme.descricao}"></h:inputText><br/>
-			Nome do Arquivo: <h:inputText value="#{filmeForm.filme.nome_arquivo}"></h:inputText><br/>
-			Nome da Capa: <h:inputText value="#{filmeForm.filme.nome_capa}"></h:inputText><br/> 
-			Duração: <h:inputText value="#{filmeForm.filme.duracao}"></h:inputText><br/>
-			Ano: <h:inputText value="#{filmeForm.filme.ano}"></h:inputText><br/>
-			Gênero: <h:inputText value="#{filmeForm.filme.genero}"></h:inputText><br/>
-			Atores: <h:inputText value="#{filmeForm.filme.atores}"></h:inputText><br/>
-			
-			<!-- 
+
+<h:head>
+	<title>Netflix 2.0 - Adicionar Filme</title>
+
+	<h:outputStylesheet library="css" name="Estilo.css"></h:outputStylesheet>
+	<link type="text/css" rel="stylesheet"
+		href="https://www.w3schools.com/w3css/4/w3.css"></link>
+	<link type="text/css" rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Poppins"></link>
+	<link type="text/css" rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+	<link type="text/css" rel="stylesheet" href="Modal_Style.css"></link>
+
+</h:head>
+
+<h:body class="w3-content w3-black bgimgsu" style="max-width:1500px;"
+	width="1500" >
+
+	<h:messages class="alerta"></h:messages>
+
+	<div class="w3-display-left w3-padding" style="width: 35%">
+		<div
+			class="w3-white w3-padding-large w3-round-large">
+			<h1 class="w3-xlarge">Login</h1>
+			<hr class="w3-opacity" />
+			<p>
+
+				<h:form>
+
+
+					<!-- talvez seja bom tornar a data de cadastro, quantidade de likes e dislikes não editável -->
+			ID: <h:inputText value="#{filmeForm.filme.id}"
+						class="w3-input w3-padding-16 w3-border" pt:placeholder="ID"
+						required="true"></h:inputText>
+					<br />
+			Título: <h:inputText value="#{filmeForm.filme.titulo}"
+						class="w3-input w3-padding-16 w3-border" pt:placeholder="Título"
+						required="true"></h:inputText>
+					<br />
+			Descrição: <h:inputText value="#{filmeForm.filme.descricao}"
+						class="w3-input w3-padding-16 w3-border"
+						pt:placeholder="Descrição" required="true"></h:inputText>
+					<br />
+			Nome do Arquivo: <h:inputText value="#{filmeForm.filme.nome_arquivo}"
+						class="w3-input w3-padding-16 w3-border" pt:placeholder="Arquivo"
+						required="true"></h:inputText>
+					<br />
+			Nome da Capa: <h:inputText value="#{filmeForm.filme.nome_capa}"
+						class="w3-input w3-padding-16 w3-border" pt:placeholder="Capa"
+						required="true"></h:inputText>
+					<br /> 
+			Duração: <h:inputText value="#{filmeForm.filme.duracao}"
+						class="w3-input w3-padding-16 w3-border" pt:placeholder="Duração"
+						required="true"></h:inputText>
+					<br />
+			Ano: <h:inputText value="#{filmeForm.filme.ano}"
+						class="w3-input w3-padding-16 w3-border" pt:placeholder="Ano"
+						required="true"></h:inputText>
+					<br />
+			Gênero: <h:inputText value="#{filmeForm.filme.genero}"
+						class="w3-input w3-padding-16 w3-border" pt:placeholder="Gênero"
+						required="true"></h:inputText>
+					<br />
+			Atores: <h:inputText value="#{filmeForm.filme.atores}"
+						class="w3-input w3-padding-16 w3-border" pt:placeholder="Cast"
+						required="true"></h:inputText>
+					<br />
+
+					<!-- 
 			Data de Cadastro: 
 			<h:inputText value="#{filmeForm.filme.data_cadastro}">
 				<f:convertDateTime pattern="dd/MM/yyyy"/>
@@ -36,10 +83,16 @@
 			Quantidade de Likes: <h:inputText value="#{filmeForm.filme.qtde_likes}"></h:inputText><br/>
 			Quantidade de Dislikes: <h:inputText value="#{filmeForm.filme.qtde_dislikes}"></h:inputText><br/>
 			 -->
-			
-			<h:commandButton value="Enviar" action="#{filmeForm.adicionar}"></h:commandButton><br/>
-			<a href="InicioAdministrador.xhtml">Voltar</a>
-		</h:form>
-    </h:panelGrid>
-    </h:body>
+
+					<h:commandButton value="Enviar" action="#{filmeForm.adicionar}"
+						class="w3-button w3-block w3-green w3-round">
+						<i class="fa fa-paper-plane"></i>
+					</h:commandButton>
+					<br />
+					<a href="InicioAdministrador.xhtml">Voltar</a>
+				</h:form>
+			</p>
+		</div>
+	</div>
+</h:body>
 </html>

@@ -3,7 +3,8 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 
 <h:head>
@@ -21,7 +22,7 @@
 
 </h:head>
 
-<h:body class="w3-content w3-black bgimg" style="max-width:1500px;"
+<h:body class="w3-content w3-black bgimglg" style="max-width:1500px;"
 	width="1500" height="1000">
 	
 	<h:messages class="alerta"></h:messages>
@@ -34,10 +35,10 @@
 			<p>
 				<h:form>
 			E-mail: <h:inputText value="#{usuarioForm.usuario.email}"
-						class="w3-input w3-padding-16 w3-border" placeholder="E-mail"
+						class="w3-input w3-padding-16 w3-border" pt:placeholder="E-mail"
 						required="true"></h:inputText>
 			 Senha: <h:inputSecret value="#{usuarioForm.usuario.senha}"
-						class="w3-input w3-padding-16 w3-border" placeholder="Senha"
+						class="w3-input w3-padding-16 w3-border" pt:placeholder="Senha"
 						required="true">
 					</h:inputSecret>
 					<p>
