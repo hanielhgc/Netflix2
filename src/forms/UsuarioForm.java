@@ -23,6 +23,24 @@ public class UsuarioForm {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	
+	
+	
+	
+	public String alterar(){
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuarioLogado", usuario1);
+		Usuario usuario1 = new Usuario();
+		UsuarioDao udao = new UsuarioDao();
+	
+		udao.alterar(usuario1);
+		return "InicioUsuario";	
+		}
+	
+	
+	
+	
+	
 	
 	
 	public String logout(){

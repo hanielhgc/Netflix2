@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+
+
+<h:head>
+	<title>Netflix 2.0 - Editar Perfil</title>
+	
+	<h:outputStylesheet library="css" name="Estilo.css"></h:outputStylesheet>
+	
+	<link type="text/css" rel="stylesheet"
+		href="https://www.w3schools.com/w3css/4/w3.css"></link>
+	<link type="text/css" rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Poppins"></link>
+	<link type="text/css" rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+	<link type="text/css" rel="stylesheet" href="Modal_Style.css"></link>
+	
+</h:head>
+
+<h:body class="w3-content w3-black bgimgsu " style="max-width:1500px;"
+	width="1500" >
+	
+	<h:messages class="alerta"></h:messages>
+	
+	<div class="w3-display-left w3-padding" style="width: 35%">
+		<div
+			class="w3-black w3-padding-large w3-round-large">
+			<h1 class="w3-xlarge">Editar Perfil</h1>
+			<hr class="w3-opacity" />
+			<p>
+	
+		<h:form>
+			E-mail: <h:inputText value="#{usuarioForm.usuario.email}" class="w3-input w3-padding-16 w3-border" pt:placeholder="E-mail"
+						required="true"></h:inputText>
+			<br />
+			Senha: <h:inputSecret value="#{usuarioForm.usuario.senha}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Senha"
+						required="true"></h:inputSecret>
+			<br />
+			Nome: <h:inputText value="#{usuarioForm.usuario.nome}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Nome"
+						required="true"></h:inputText>
+			<br />
+			Plano: <h:selectOneMenu value="#{usuarioForm.usuario.plano}" class="w3-input w3-padding-16 w3-border" required="true">
+				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Plano" itemValue="Plano" itemDisabled="true"></f:selectItem> 		
+				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Basico" itemValue="Básico – R$22"></f:selectItem>
+				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Padrao" itemValue="Padrão – R$23"></f:selectItem>
+				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Premium" itemValue="Premium – R$30"></f:selectItem>
+			</h:selectOneMenu>
+			<br />	
+				Cartão: <h:inputText value="#{usuarioForm.usuario.cartao}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Cartão"
+						required="true"></h:inputText>
+			<br />
+			<!--  Perfil: -->
+			<h:inputHidden value="#{usuarioForm.usuario.perfil}"
+				itemValue="Cliente"></h:inputHidden>
+
+
+			<h:commandButton value="Enviar" action="#{usuarioForm.adicionar}" class="w3-button w3-block w3-red w3-round"></h:commandButton>
+			<br />
+			<a href="InicioUsuario.xhtml">Voltar</a>
+		</h:form>
+		</p>
+		</div>
+	</div>
+</h:body>
+</html>
