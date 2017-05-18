@@ -2,17 +2,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
 
-    <h:head>
-        <title>Nextflix 2.0</title>
-    </h:head>
-    <h:body>
-    <!-- Nenum dos dois abaixo está funcionando -->
-    <h:form>
-		Olá, <h:outputText value="#{usuarioLogado.nome}"></h:outputText>
-		<h:commandButton value="Logout" action="#{usuarioForm.logout}"></h:commandButton><br/>
-    </h:form>
-    </h:body>
+<h:head>
+	<title>Nextflix 2.0</title>
+</h:head>
+<h:body>
+
+	<h:form>
+
+		<h:outputText value="#{usuarioLogado.nome}"></h:outputText>
+		<h:commandButton value="Logout" action="#{usuarioForm.logout}"></h:commandButton>
+		<br />
+
+
+	</h:form>
+
+	<h:form>
+
+		<!-- COLOCAR COISAS QUE FAZEM SENTIDO NOS CAMPOS ABAIXO -->
+			Buscar FIlme: <h:inputText value="#{usuario.nome}"></h:inputText>
+			<br />
+			<h:selectOneRadio value="#{usuario.nome}">
+			<f:selectItem itemValue = "algumacoisa" itemLabel ="Por Tìtulo" />
+			<f:selectItem itemValue = "algumacoisa" itemLabel ="Por Ator" />
+			</h:selectOneRadio>
+			
+			
+
+		<h:commandButton value="Enviar" action="#{usuarioForm.validar}"></h:commandButton>
+	</h:form>
+
+</h:body>
 </html>
