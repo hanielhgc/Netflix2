@@ -7,7 +7,7 @@ public class Usuario {
 	private String email;
 	private String senha;
 	private String nome;
-	private String plano;
+	private String plano = "Plano";
 	private String cartao;
 	private String perfil;
 	

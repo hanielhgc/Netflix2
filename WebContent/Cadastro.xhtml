@@ -31,7 +31,7 @@
 	<div class="w3-display-left w3-padding" style="width: 35%">
 		<div
 			class="w3-black w3-padding-large w3-round-large">
-			<h1 class="w3-xlarge">Login</h1>
+			<h1 class="w3-xlarge">Cadastrar</h1>
 			<hr class="w3-opacity" />
 			<p>
 	
@@ -46,7 +46,7 @@
 						required="true"></h:inputText>
 			<br />
 			Plano: <h:selectOneMenu value="#{usuarioForm.usuario.plano}" class="w3-input w3-padding-16 w3-border" required="true">
-	<!-- 		<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Plano" itemValue="null" itemDisabled="true"></f:selectItem> -->		
+				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Plano" itemValue="Plano" itemDisabled="true"></f:selectItem> 		
 				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Basico" itemValue="Básico – R$22"></f:selectItem>
 				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Padrao" itemValue="Padrão – R$23"></f:selectItem>
 				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Premium" itemValue="Premium – R$30"></f:selectItem>
@@ -60,7 +60,7 @@
 				itemValue="Cliente"></h:inputHidden>
 
 
-			<h:commandButton value="Enviar" action="#{usuarioForm.adicionar}" class="w3-button w3-block w3-red w3-round"><i class="fa fa-paper-plane"> </i> </h:commandButton>
+			<h:commandButton value="Enviar" action="#{usuarioForm.adicionar}" class="w3-button w3-block w3-red w3-round"></h:commandButton>
 			<br />
 			<a href="Login.xhtml">Voltar</a>
 		</h:form>

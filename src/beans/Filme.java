@@ -14,13 +14,13 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class Filme {
 	
-	private int id;
+	private Integer id;
 	private String titulo;
 	private String descricao;
 	private String nome_arquivo;
 	private String nome_capa;
-	private int duracao;
-	private int ano;
+	private Integer duracao;
+	private Integer ano;
 	private String genero;
 	private String atores;
 	private Date data_cadastro;
@@ -29,7 +29,7 @@ public class Filme {
 	
 	
 	
-	public Filme(int id, String titulo, String descricao, String nome_arquivo, String nome_capa, int duracao, int ano,
+	public Filme(int id, String titulo, String descricao, String nome_arquivo, String nome_capa, Integer duracao, Integer ano,
 			String genero, String atores, Date data_cadastro, int qtde_likes, int qtde_dislikes) {
 		super();
 		this.id = id;
@@ -50,10 +50,10 @@ public class Filme {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getTitulo() {
@@ -80,16 +80,16 @@ public class Filme {
 	public void setNome_capa(String nome_capa) {
 		this.nome_capa = nome_capa;
 	}
-	public int getDuracao() {
+	public Integer getDuracao() {
 		return duracao;
 	}
-	public void setDuracao(int duracao) {
+	public void setDuracao(Integer duracao) {
 		this.duracao = duracao;
 	}
-	public int getAno() {
+	public Integer getAno() {
 		return ano;
 	}
-	public void setAno(int ano) {
+	public void setAno(Integer ano) {
 		this.ano = ano;
 	}
 	public String getGenero() {
