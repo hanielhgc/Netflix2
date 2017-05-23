@@ -36,27 +36,27 @@
 			<p>
 	
 		<h:form>
-			E-mail: <h:inputText value="#{usuarioForm.usuarioSessao.email}" class="w3-input w3-padding-16 w3-border" pt:placeholder="E-mail"
+			E-mail: <h:inputText itemDisabled="true" value="#{usuarioForm.usuarioSessao.email}" class="w3-input w3-padding-16 w3-border" pt:placeholder="E-mail"
 						required="true"></h:inputText>
 			<br />
-			Senha: <h:inputSecret value="#{usuarioForm.usuario.senha}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Senha"
+			Senha: <h:inputSecret value="#{usuarioForm.usuarioSessao.senha}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Senha"
 						required="true"></h:inputSecret>
 			<br />
-			Nome: <h:inputText value="#{usuarioForm.usuario.nome}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Nome"
+			Nome: <h:inputText value="#{usuarioForm.usuarioSessao.nome}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Nome"
 						required="true"></h:inputText>
 			<br />
-			Plano: <h:selectOneMenu value="#{usuarioForm.usuario.plano}" class="w3-input w3-padding-16 w3-border" required="true">
+			Plano: <h:selectOneMenu value="#{usuarioForm.usuarioSessao.plano}" class="w3-input w3-padding-16 w3-border" required="true">
 				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Plano" itemValue="Plano" itemDisabled="true"></f:selectItem> 		
 				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Basico" itemValue="Básico – R$22"></f:selectItem>
 				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Padrao" itemValue="Padrão – R$23"></f:selectItem>
 				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Premium" itemValue="Premium – R$30"></f:selectItem>
 			</h:selectOneMenu>
 			<br />	
-				Cartão: <h:inputText value="#{usuarioForm.usuario.cartao}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Cartão"
+				Cartão: <h:inputText value="#{usuarioForm.usuarioSessao.cartao}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Cartão"
 						required="true"></h:inputText>
 			<br />
 			<!--  Perfil: -->
-			<h:inputHidden value="#{usuarioForm.usuario.perfil}"
+			<h:inputHidden value="#{usuarioForm.usuarioSessao.perfil}"
 				itemValue="Cliente"></h:inputHidden>
 
 
