@@ -14,6 +14,7 @@ public class Teste {
 			usuario1 = udao.buscarPorEmail("aaaaa");
 		} catch (NullPointerException e) {
 			// TODO Auto-generated catch block
+			//alguma coisa aqui
 			e.printStackTrace();
 		}
 		
