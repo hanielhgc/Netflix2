@@ -331,7 +331,7 @@ public class FilmeDao {
 
 			while (rs.next()) {
 				int id = rs.getInt("id");
-				String titulo = rs.getString("titulo");
+				String title = rs.getString("titulo");
 				String descricao = rs.getString("descricao");
 				String nome_arquivo = rs.getString("nome_arquivo");
 				String nome_capa = rs.getString("nome_capa");
@@ -343,7 +343,7 @@ public class FilmeDao {
 				int qtde_likes = rs.getInt("qtde_likes");
 				int qtde_dislikes = rs.getInt("qtde_dislikes");
 
-				Filme filme = new Filme(id, titulo, descricao, nome_arquivo, nome_capa, duracao, ano, genero, atores, data_cadastro, qtde_likes, qtde_dislikes);
+				Filme filme = new Filme(id, title, descricao, nome_arquivo, nome_capa, duracao, ano, genero, atores, data_cadastro, qtde_likes, qtde_dislikes);
 
 				filmes.add(filme);
 			}
