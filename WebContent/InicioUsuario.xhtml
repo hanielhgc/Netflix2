@@ -3,38 +3,111 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <h:head>
 	<title>Nextflix 2.0</title>
+
+	<h:outputStylesheet library="css" name="Estilo.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="Carousel.css"></h:outputStylesheet>
+
+	<link type="text/css" rel="stylesheet"
+		href="https://www.w3schools.com/w3css/4/w3.css"></link>
+	<link type="text/css" rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+
 </h:head>
-<h:body>
+<h:body class="bgimg">
 
+	<!-- Sidebar/Pesquisa -->
+	<nav
+		class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-small"
+		style="z-index:3;width:250px;font-weight:bold;display:none;right:0;"
+		id="mySidebar"> <h:link outcome="javascript:void()"
+		onclick="w3_close()"
+		class="w3-bar-item w3-button w3-center w3-padding-32">Fechar</h:link>
 	<h:form>
 
-		<h:outputText value="#{usuarioLogado.nome}"></h:outputText>
-		<h:commandButton value="Logout" action="#{usuarioForm.logout}"></h:commandButton>
-		<br />
+			Buscar Filme: 
+		<h:inputText class="w3-bar-item" value="#{usuario.nome}"
+			pt:placeholder="Pesquisa" style=" padding: 16px"></h:inputText>
+
+		<h:selectOneRadio value="#{usuario.nome}">
+			<f:selectItem class="w3-bar-item w3-button w3-padding-16"
+				itemValue="titulo" itemLabel="Por Tìtulo" />
+			<f:selectItem class="w3-bar-item w3-button w3-padding-16"
+				itemValue="ator" itemLabel="Por Ator" />
+		</h:selectOneRadio>
+		<h:commandButton
+			class="w3-bar-item w3-button w3-center w3-padding-16 w3-border"
+			value="Enviar" action="#{usuarioForm.validar}" onclick="w3_close()"></h:commandButton>
+	</h:form> </nav>
+
+	<!-- Navbar (sit on top) -->
+	<div class="w3-top">
+		<div class="w3-bar w3-white w3-card-4" id="myNavbar">
+			<a href="#home" class="w3-bar-item w3-button w3-wide">LOGO</a>
+			<!-- Right-sided navbar links -->
+			<div class="w3-right">
+				<h:link outcome="Favoritos" class="w3-bar-item w3-button">
+					<i class="fa fa-star"></i> Favoritos</h:link>
+				<h:link outcome="EditarUsuario" class="w3-bar-item w3-button">
+					<i class="fa fa-user"></i>&nbsp;<h:outputText
+						value="#{usuarioLogado.nome}"></h:outputText>
+				</h:link>
+
+				<h:link outcome="Login" class="w3-bar-item w3-button"
+					action="#{usuarioForm.logout}">
+					<i class="fa fa-sign-out"></i> Sair</h:link>
+
+				<h:link outcome="javascript:void(0)" class="w3-bar-item w3-button"
+					onclick="w3_open()">
+					<i class="fa fa-search"></i>
+				</h:link>
+			</div>
+		</div>
+	</div>
+
+	<!-- Carousel -->
+	<div class="contain w3-padding-64">
+
+		<h1>Pure CSS Netflix Carousel</h1>
 
 
-	</h:form>
+		<div class="row">
+		
+			<div class="row__inner">
 
-	<h:form>
-
-		<!-- COLOCAR COISAS QUE FAZEM SENTIDO NOS CAMPOS ABAIXO -->
-			Buscar FIlme: <h:inputText value="#{usuario.nome}"></h:inputText>
-			<br />
-			<h:selectOneRadio value="#{usuario.nome}">
-			<f:selectItem itemValue = "algumacoisa" itemLabel ="Por Tìtulo" />
-			<f:selectItem itemValue = "algumacoisa" itemLabel ="Por Ator" />
-			</h:selectOneRadio>
-
-			<h:link outcome="EditarUsuario">Alterar Usuário</h:link>
+				<div class="tile">
+					<div class="tile__media">
+						<img class="tile__img"
+							src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-1.jpg"
+							alt=""> </img>
+					</div>
+					<div class="tile__details">
+						<div class="tile__title">Top Gear</div>
+					</div>
+				</div>
+				
+			</div>
 			
-			
+		</div>
+		
+	</div>
 
-		<h:commandButton value="Enviar" action="#{usuarioForm.validar}"></h:commandButton>
-	</h:form>
 
+	<script>
+		// Script to open and close sidebar
+		function w3_open() {
+			document.getElementById("mySidebar").style.display = "block";
+			document.getElementById("myOverlay").style.display = "block";
+		}
+
+		function w3_close() {
+			document.getElementById("mySidebar").style.display = "none";
+			document.getElementById("myOverlay").style.display = "none";
+		}
+	</script>
 </h:body>
 </html>
