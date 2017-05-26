@@ -16,6 +16,51 @@ import beans.Filme;
 
 public class FilmeDao {
 	
+	
+	public void gostar(Integer id){
+		Connection conexao = null;
+		PreparedStatement pstmt = null;
+		String sql = "UPDATE filme SET qtde_likes= qtde_likes +1 WHERE id=?";
+		try {
+
+			conexao = Conexao.getConnection();
+			pstmt = conexao.prepareStatement(sql);
+			
+			pstmt.setInt(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			
+			rs.close();
+			pstmt.close();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}	
+		
+	}
+	
+	
+	public void desgostar(Integer id){
+		Connection conexao = null;
+		PreparedStatement pstmt = null;
+		String sql = "UPDATE filme SET qtde_dislikes= qtde_dislikes +1 WHERE id='?'";
+		try {
+
+			conexao = Conexao.getConnection();
+			pstmt = conexao.prepareStatement(sql);
+			
+			pstmt.setInt(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			
+			rs.close();
+			pstmt.close();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}	
+		
+	}
+	
+	
 	public List<Filme> mostrar5Favoritos(String email) {
 
 		Connection conexao = null;

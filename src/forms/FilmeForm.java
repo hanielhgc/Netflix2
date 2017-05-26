@@ -1,13 +1,16 @@
 package forms;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import beans.Filme;
+import beans.Usuario;
 import persistence.FilmeDao;
 import persistence.UsuarioDao;
 
@@ -101,11 +104,24 @@ public class FilmeForm {
 
 	}
 	
+	
+	public void darLike(int id){
+	FilmeDao fdao = new FilmeDao();
+	fdao.gostar(id);
+		
+	}
+	
+	public void darDislike(int id){
+		FilmeDao fdao = new FilmeDao();
+		fdao.desgostar(id);
+			
+		}
+	
 	public void cincoFavoritos() {
 		cincoFavoritos = new ArrayList<>();
 		FilmeDao fdao = new FilmeDao();
 		
-		cincoFavoritos = fdao.mostrar5favoritos(usuarioSessao.getEmail());
+		cincoFavoritos = fdao.mostrar5Favoritos(usuarioSessao.getEmail());
 
 	}
 	
@@ -113,7 +129,7 @@ public class FilmeForm {
 		cincoMelhores = new ArrayList<>();
 		FilmeDao fdao = new FilmeDao();
 		
-		cincoMelhores = fdao.mostrar5melhores(usuarioSessao.getEmail());
+		cincoMelhores = fdao.mostrar5melhores();
 
 	}
 	
@@ -121,7 +137,7 @@ public class FilmeForm {
 		cincoRecentes = new ArrayList<>();
 		FilmeDao fdao = new FilmeDao();
 		
-		cincoRecentes = fdao.mostrar5recentes(usuarioSessao.getEmail());
+		cincoRecentes = fdao.mostrar5recentes();
 
 	}
 

@@ -1,11 +1,12 @@
 package tests;
 
 import beans.Usuario;
+import persistence.FilmeDao;
 import persistence.UsuarioDao;
 
 public class Teste {
 	public static void main(String[] args) {
-		
+		/*
 		Usuario usuario1 = new Usuario();
 		UsuarioDao udao = new UsuarioDao();
 		
@@ -20,6 +21,11 @@ public class Teste {
 		
 		
 		//System.out.println(usuario1.getEmail());
+		
+		*/
+		
+		FilmeDao fdao = new FilmeDao();
+		fdao.gostar(1);
 		
 	}
 
