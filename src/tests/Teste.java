@@ -1,5 +1,8 @@
 package tests;
 
+import java.sql.Timestamp;
+
+import beans.Favoritos;
 import beans.Usuario;
 import persistence.FilmeDao;
 import persistence.UsuarioDao;
@@ -24,8 +27,9 @@ public class Teste {
 		
 		*/
 		
-		FilmeDao fdao = new FilmeDao();
-		fdao.gostar(1);
+		//FilmeDao fdao = new FilmeDao();
+		//fdao.gostar(1);
+		
 		
 	}
 

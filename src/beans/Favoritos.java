@@ -11,7 +11,7 @@ public class Favoritos {
 	
 	private String usuario_email;
 	private int filme_id;
-	private Date data_cadastro;
+	private Date data_cadastro = new Date();
 	
 	
 	public String getUsuario_email() {
