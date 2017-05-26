@@ -18,7 +18,7 @@ public class UsuarioForm {
 	private Usuario usuario = new Usuario();
 
 	@ManagedProperty(value = "#{usuarioLogado}")
-	private Usuario usuarioSessao;
+	static private Usuario usuarioSessao;
 
 	public Usuario getUsuarioSessao() {
 		return usuarioSessao;

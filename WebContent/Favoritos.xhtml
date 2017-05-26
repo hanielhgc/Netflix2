@@ -96,6 +96,32 @@
 		
 	</div>
 
+<h:form>
+			Nome: <h:inputText value="#{filmeForm.nomeBusca}"></h:inputText>
+			<h:commandButton value="Enviar" action="#{filmeForm.favoritos}"></h:commandButton>
+		</h:form>
+
+<h:dataTable value="#{filmeForm.filmesDoBanco}" var="f" rowClasses="par,impar" headerClass="titulo">
+			<h:column>
+				<h:outputText value="#{f.titulo}"></h:outputText>
+				<f:facet name="header">
+					Titulo
+				</f:facet>
+			</h:column>
+			<h:column>
+				<h:outputText value="#{f.nome_capa}"></h:outputText>
+				<f:facet name="header">
+					Capa
+				</f:facet>
+			</h:column>
+			<h:column>
+				<h:outputText value="#{f.duracao}"></h:outputText>
+				<f:facet name="header">
+					Duração
+				</f:facet>
+			</h:column>
+		</h:dataTable>
+
 
 	<script>
 		// Script to open and close sidebar
