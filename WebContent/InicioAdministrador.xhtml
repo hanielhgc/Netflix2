@@ -2,21 +2,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
-      
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
 
 
-    <h:head>
-        <title>Netflix 2.0 - Administrador</title>
-       <h:outputStylesheet library="css" name="Estilo.css"></h:outputStylesheet>
-    </h:head>
-    <h:body class = "bgimg">
-    <h:messages class="alerta"></h:messages>
-		<h:panelGrid cellpadding="100" width="50">
-		
-			<a href="AdicionarFilme.xhtml">Adicionar Novo Filme</a>
-		
-    </h:panelGrid>
-    </h:body>
+
+<h:head>
+	<title>Netflix 2.0 - Administrador</title>
+
+	<h:outputStylesheet library="css" name="Estilo.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="Carousel.css"></h:outputStylesheet>
+
+	<link type="text/css" rel="stylesheet"
+		href="https://www.w3schools.com/w3css/4/w3.css"></link>
+	<link type="text/css" rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+
+</h:head>
+
+<h:body class="bgimg">
+
+	<h:messages class="alerta"></h:messages>
+
+	<!-- Navbar (sit on top) -->
+	<div class="w3-top">
+		<div class="w3-bar w3-white w3-card-4" id="myNavbar">
+
+			<h:link outcome="#home" class="w3-bar-item w3-button w3-wide"
+				style="padding:0px">
+				<img alt="HOME" src="resources\img\Netflix_logo.png" width="58"
+					height="58"></img>
+			</h:link>
+			<!-- Right-sided navbar links -->
+			<div class="w3-right">
+
+				<h:link outcome="EditarUsuario" class="w3-bar-item w3-button">
+					<i class="fa fa-user"></i>&nbsp;<h:outputText
+						value="#{usuarioLogado.nome}"></h:outputText>
+				</h:link>
+				<h:link outcome="AdicionarFilme" class="w3-bar-item w3-button">
+					<i class="fa fa-plus-square-o"></i> Novo Filme</h:link>
+
+				<h:link outcome="Login" class="w3-bar-item w3-button"
+					action="#{usuarioForm.logout}">
+					<i class="fa fa-sign-out"></i> Sair</h:link>
+			</div>
+		</div>
+	</div>
+
+</h:body>
 </html>
