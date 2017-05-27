@@ -18,7 +18,7 @@
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
 </h:head>
-<h:body class="bgimg">
+<h:body class="bgimgBlack">
 
 	<!-- Sidebar/Pesquisa -->
 	<nav
@@ -47,11 +47,12 @@
 	<!-- Navbar (sit on top) -->
 	<div class="w3-top">
 		<div class="w3-bar w3-white w3-card-4" id="myNavbar">
-			<a href="#home" class="w3-bar-item w3-button w3-wide">LOGO</a>
+		
+			<h:link outcome="#home" class="w3-bar-item w3-button w3-wide" style="padding:0px"><img alt="HOME" src="resources\img\Netflix_logo.png" width="58" height="58"></img></h:link>
 			<!-- Right-sided navbar links -->
 			<div class="w3-right">
-				<h:link outcome="Favoritos" class="w3-bar-item w3-button">
-					<i class="fa fa-star"></i> Favoritos</h:link>
+				<h:link outcome="InicioUsuario" class="w3-bar-item w3-button">
+					<i class="fa fa-home"></i> Home</h:link>
 				<h:link outcome="EditarUsuario" class="w3-bar-item w3-button">
 					<i class="fa fa-user"></i>&nbsp;<h:outputText
 						value="#{usuarioLogado.nome}"></h:outputText>

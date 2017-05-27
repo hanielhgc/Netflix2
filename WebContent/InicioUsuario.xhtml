@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head>
 	<title>Nextflix 2.0</title>
@@ -41,60 +42,95 @@
 		</h:selectOneRadio>
 		<h:commandButton
 			class="w3-bar-item w3-button w3-center w3-padding-16 w3-border"
-			value="Enviar" action="#{usuarioForm.validar}" onclick="w3_close()"></h:commandButton>
+			value="Enviar" action="#{FilmeForm.buscar}" onclick="w3_close()"></h:commandButton>
 	</h:form> </nav>
 
 	<!-- Navbar (sit on top) -->
 	<div class="w3-top">
 		<div class="w3-bar w3-white w3-card-4" id="myNavbar">
-		
-			<h:link outcome="#home" class="w3-bar-item w3-button w3-wide" style="padding:0px"><img alt="HOME" src="resources\img\Netflix_logo.png" width="58" height="58"></img></h:link>
+
+			<h:link outcome="#home" class="w3-bar-item w3-button w3-wide"
+				style="padding:0px">
+				<img alt="HOME" src="resources\img\Netflix_logo.png" width="58"
+					height="58"></img>
+			</h:link>
 			<!-- Right-sided navbar links -->
 			<div class="w3-right">
-				<h:link outcome="Favoritos" class="w3-bar-item w3-button">
-					<i class="fa fa-star"></i> Favoritos</h:link>
-				<h:link outcome="EditarUsuario" class="w3-bar-item w3-button">
-					<i class="fa fa-user"></i>&nbsp;<h:outputText
-						value="#{usuarioLogado.nome}"></h:outputText>
-				</h:link>
+				<h:form>
+					<h:link outcome="Favoritos" class="w3-bar-item w3-button">
+						<i class="fa fa-star"></i> Favoritos</h:link>
+					<h:link outcome="EditarUsuario" class="w3-bar-item w3-button">
+						<i class="fa fa-user"></i>&nbsp;<h:outputText
+							value="#{usuarioLogado.nome}"></h:outputText>
+					</h:link>
 
-				<h:link outcome="Login" class="w3-bar-item w3-button"
-					action="#{usuarioForm.logout}">
-					<i class="fa fa-sign-out"></i> Sair</h:link>
+					<h:commandLink class="w3-bar-item w3-button"
+						action="#{usuarioForm.logout}">
+						<i class="fa fa-sign-out"></i> Sair</h:commandLink>
 
-				<h:link outcome="javascript:void(0)" class="w3-bar-item w3-button"
-					onclick="w3_open()">
-					<i class="fa fa-search"></i>
-				</h:link>
+					<h:link outcome="javascript:void(0)" class="w3-bar-item w3-button"
+						onclick="w3_open()">
+						<i class="fa fa-search"></i>
+					</h:link>
+				</h:form>
 			</div>
 		</div>
 	</div>
 
 	<!-- Carousel -->
 	<div class="contain w3-padding-64">
-
-		<h1 id="home">Pure CSS Netflix Carousel</h1>
+		<!-- <c:forEach items="#{filmeForm.favoritos}" var="f" end="4">  -->
+		<h1 id="home">CSS Netflix Carousel</h1>
 
 
 		<div class="row">
-		
+
 			<div class="row__inner">
 
 				<div class="tile">
+				
 					<div class="tile__media">
-						<img class="tile__img"
+						 <img class="tile__img"
 							src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-1.jpg"
 							alt=""> </img>
+						<!-- <h:graphicImage library="img" name="#{f.nome_capa}"></h:graphicImage>  -->
+						
 					</div>
 					<div class="tile__details">
-						<div class="tile__title">Top Gear</div>
+						<div class="tile__title"><a href="#openModal">Top Gear</a></div> <!-- <h:outputText value="#{f.titulo}" /> -->
 					</div>
 				</div>
-				
+
 			</div>
-			
+
 		</div>
-		
+		<!-- </c:forEach> -->
+
+	</div>
+
+	<a href="#openModal">Open Modal</a>
+
+	<div id="openModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+
+			<h2>Filme</h2>
+
+			<h:link outcome="Player" class="w3-button w3-wide"
+				style="padding:0px">
+				<img alt="HOME" src="resources\img\Netflix_logo.png" width="58"
+					height="58"></img>
+			</h:link>
+			<p>Aqui ficaria a imagem clicavél para ver o filme</p>
+			<p>
+				Aqui deveriam estar os botões de likes <i class="fa fa-thumbs-o-up"></i>
+				e dislikes <i class="fa fa-thumbs-o-down"></i>
+			</p>
+			<p>
+				Aqui a opção de favoritar <i class="fa fa-heart-o"></i>
+			</p>
+
+		</div>
 	</div>
 
 

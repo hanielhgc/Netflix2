@@ -37,7 +37,7 @@
 	
 		<h:form>
 			E-mail: <h:inputText readonly="true" value="#{usuarioForm.usuarioSessao.email}" class="w3-input w3-padding-16 w3-border" pt:placeholder="E-mail"
-						required="true"></h:inputText>
+						disable="true"></h:inputText>
 			<br />
 			Senha: <h:inputSecret value="#{usuarioForm.usuarioSessao.senha}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Senha"
 						required="true"></h:inputSecret>
@@ -55,14 +55,11 @@
 				Cartão: <h:inputText value="#{usuarioForm.usuarioSessao.cartao}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Cartão"
 						required="true"></h:inputText>
 			<br />
-			<!--  Perfil: -->
-			<h:inputHidden value="#{usuarioForm.usuarioSessao.perfil}"
-				itemValue="Cliente"></h:inputHidden>
 
 
 			<h:commandButton value="Enviar" action="#{usuarioForm.alterar}" class="w3-button w3-block w3-red w3-round"></h:commandButton>
 			<br />
-			<a href="InicioUsuario.xhtml">Voltar</a>
+			<h:link outcome="InicioUsuario">Voltar</h:link>
 		</h:form>
 		</p>
 		</div>

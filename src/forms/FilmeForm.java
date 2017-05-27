@@ -96,14 +96,46 @@ public class FilmeForm {
 		this.filmesDoBanco = filmesDoBanco;
 	}
 
-	public void favoritos() {
+	public List<Filme> getFavoritos() {
 		filmesDoBanco = new ArrayList<>();
 		FilmeDao fdao = new FilmeDao();
 		
 		filmesDoBanco = fdao.listarFavoritos(usuarioSessao.getEmail());
-
+		return filmesDoBanco;
 	}
 	
+//	public List<Filme> buscar() {
+//
+//		Usuario usuario1 = new Usuario();
+//		UsuarioDao udao = new UsuarioDao();
+//		usuario1 = udao.buscarPorEmail(usuario.getEmail());
+//
+//		try {
+//			System.out.println(usuario1.getPerfil());
+//		} catch (NullPointerException e) {
+//
+//			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário e/ou senha incorretos."));
+//
+//			return "Login";
+//
+//		}
+//
+//		if (usuario.getEmail() != null && usuario != null && usuario.getSenha().equals(usuario1.getSenha())) {
+//			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuarioLogado", usuario1);
+//
+//			if (usuario1.getPerfil().equals("Administrador")) {
+//				return "InicioAdministrador";
+//			} else {
+//
+//				return "InicioUsuario";
+//			}
+//
+//		} else {
+//			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário e/ou senha incorretos."));
+//			return null;
+//		}
+//
+//	}
 	
 	public void darLike(int id){
 	FilmeDao fdao = new FilmeDao();

@@ -17,14 +17,29 @@
 		href="https://www.w3schools.com/w3css/4/w3.css"></link>
 	<link type="text/css" rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-
+	<style>
+		.videoContainer 
+		{
+		    position:absolute;
+		    height:100%;
+		    width:100%;
+		    overflow: hidden;
+		}
+		
+		.videoContainer video 
+		{
+		    min-width: 100%;
+		    min-height: 100%;
+		}
+	</style>
 </h:head>
 
 <h:body class="bgimg">
 
-<video id="myVideo" width="100%" controls="controls">
-    <source src="resources\videos\Marmota dramatica.mp4" type="video/ogg" />
+<div class="videoContainer">
+<video id="myVideo" height="100%"  controls="controls" autoplay="true">
+    <source src="resources/videos/Marmota dramatica.mp4" type="video/mp4" />
 </video>
-
+</div>
 </h:body>
 </html>

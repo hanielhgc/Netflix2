@@ -37,11 +37,9 @@ public class UsuarioForm {
 	}
 	
 	public String alterar() {
-		Usuario usuario1 = new Usuario();
 		UsuarioDao udao = new UsuarioDao();
-		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuarioLogado", usuario1);
 
-		udao.alterar(usuario1.getEmail(), usuario1);
+		udao.alterar(usuarioSessao.getEmail(), usuarioSessao);
 		return "InicioUsuario";
 	}
 
