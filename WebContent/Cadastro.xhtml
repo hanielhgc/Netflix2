@@ -37,13 +37,13 @@
 	
 		<h:form>
 			E-mail: <h:inputText value="#{usuarioForm.usuario.email}" class="w3-input w3-padding-16 w3-border" pt:placeholder="E-mail"
-						required="true"></h:inputText>
+						required="true" requiredMessage="Email obrigatorio!"></h:inputText>
 			<br />
 			Senha: <h:inputSecret value="#{usuarioForm.usuario.senha}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Senha"
-						required="true"></h:inputSecret>
+						required="true" requiredMessage="Senha obrigatoria!"></h:inputSecret>
 			<br />
 			Nome: <h:inputText value="#{usuarioForm.usuario.nome}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Nome"
-						required="true"></h:inputText>
+						required="true" requiredMessage="Nome obrigatorio!"></h:inputText>
 			<br />
 			Plano: <h:selectOneMenu value="#{usuarioForm.usuario.plano}" class="w3-input w3-padding-16 w3-border" required="true">
 				<f:selectItem class="w3-input w3-padding-16 w3-border" itemLabel="Plano" itemValue="Plano" itemDisabled="true"></f:selectItem> 		
@@ -53,7 +53,7 @@
 			</h:selectOneMenu>
 			<br />	
 				Cartão: <h:inputText value="#{usuarioForm.usuario.cartao}" class="w3-input w3-padding-16 w3-border" pt:placeholder="Cartão"
-						required="true"></h:inputText>
+						required="true" requiredMessage="Número do cartão obrigatorio!"></h:inputText>
 			<br />
 			<!--  Perfil: -->
 			<h:inputHidden value="#{usuarioForm.usuario.perfil}"

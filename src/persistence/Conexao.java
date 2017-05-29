@@ -15,7 +15,7 @@ public class Conexao {
 	}
 
 	public static Connection getConnection() throws SQLException {
-		return (Connection) DriverManager.getConnection("jdbc:mysql://localhost/netflix", "root", "5897");
+		return (Connection) DriverManager.getConnection("jdbc:mysql://localhost/netflix", "root", "unifor");
 	}
 
 }
