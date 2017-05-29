@@ -25,7 +25,7 @@ public class UsuarioForm {
 	}
 
 	public void setUsuarioSessao(Usuario usuarioSessao) {
-		this.usuarioSessao = usuarioSessao;
+		UsuarioForm.usuarioSessao = usuarioSessao;
 	}
 
 	public Usuario getUsuario() {
@@ -77,16 +77,7 @@ public class UsuarioForm {
 		UsuarioDao udao = new UsuarioDao();
 		usuario1 = udao.buscarPorEmail(usuario.getEmail());
 
-		try {
-			System.out.println(usuario1.getPerfil());
-		} catch (NullPointerException e) {
-
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário e/ou senha incorretos."));
-
-			return "Login";
-
-		}
-
+		
 		if (usuario.getEmail() != null && usuario != null && usuario.getSenha().equals(usuario1.getSenha())) {
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuarioLogado", usuario1);
 

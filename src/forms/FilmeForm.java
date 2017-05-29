@@ -12,13 +12,12 @@ import javax.faces.context.FacesContext;
 import beans.Filme;
 import beans.Usuario;
 import persistence.FilmeDao;
-import persistence.UsuarioDao;
 
 @ManagedBean
 @RequestScoped
 public class FilmeForm {
-	
-	//Usuario
+
+	// Usuario
 
 	Filme filme = new Filme();
 	private String nomeBusca;
@@ -28,7 +27,7 @@ public class FilmeForm {
 	private List<Filme> cincoMelhores;
 	private List<Filme> cincoRecentes;
 	private List<Filme> cincoFavoritos;
-	
+
 	@ManagedProperty(value = "#{usuarioLogado}")
 	private Usuario usuarioSessao;
 
@@ -99,76 +98,63 @@ public class FilmeForm {
 	public List<Filme> getFavoritos() {
 		filmesDoBanco = new ArrayList<>();
 		FilmeDao fdao = new FilmeDao();
-		
+
 		filmesDoBanco = fdao.listarFavoritos(usuarioSessao.getEmail());
 		return filmesDoBanco;
 	}
-	
-//	public List<Filme> buscar() {
-//
-//		Usuario usuario1 = new Usuario();
-//		UsuarioDao udao = new UsuarioDao();
-//		usuario1 = udao.buscarPorEmail(usuario.getEmail());
-//
-//		try {
-//			System.out.println(usuario1.getPerfil());
-//		} catch (NullPointerException e) {
-//
-//			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário e/ou senha incorretos."));
-//
-//			return "Login";
-//
-//		}
-//
-//		if (usuario.getEmail() != null && usuario != null && usuario.getSenha().equals(usuario1.getSenha())) {
-//			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuarioLogado", usuario1);
-//
-//			if (usuario1.getPerfil().equals("Administrador")) {
-//				return "InicioAdministrador";
-//			} else {
-//
-//				return "InicioUsuario";
-//			}
-//
-//		} else {
-//			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário e/ou senha incorretos."));
-//			return null;
-//		}
-//
-//	}
-	
-	public void darLike(int id){
-	FilmeDao fdao = new FilmeDao();
-	fdao.gostar(id);
-		
+
+	public List<Filme> buscar(String busca, String buscaTipo) {
+
+		FilmeDao fdao = new FilmeDao();
+
+		if (buscaTipo.equals("titulo")) {
+			System.out.println(fdao.buscarTitulo(busca));
+
+			return fdao.buscarTitulo(busca);
+		} else {
+
+			if (buscaTipo.equals("ator")) {
+				return fdao.buscarAtor(busca);
+			} else {
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Nenhum Resultado Foi Encontrado"));
+				return null;
+			}
+		}
+
 	}
-	
-	public void darDislike(int id){
+
+	public void darLike(int id) {
+		FilmeDao fdao = new FilmeDao();
+		fdao.gostar(id);
+
+	}
+
+	public void darDislike(int id) {
 		FilmeDao fdao = new FilmeDao();
 		fdao.desgostar(id);
-			
-		}
-	
+
+	}
+
 	public void cincoFavoritos() {
 		cincoFavoritos = new ArrayList<>();
 		FilmeDao fdao = new FilmeDao();
-		
+
 		cincoFavoritos = fdao.mostrar5Favoritos(usuarioSessao.getEmail());
 
 	}
-	
+
 	public void cincoMelhores() {
 		cincoMelhores = new ArrayList<>();
 		FilmeDao fdao = new FilmeDao();
-		
+
 		cincoMelhores = fdao.mostrar5melhores();
 
 	}
-	
+
 	public void cincoRecentes() {
 		cincoRecentes = new ArrayList<>();
 		FilmeDao fdao = new FilmeDao();
-		
+
 		cincoRecentes = fdao.mostrar5recentes();
 
 	}
@@ -198,6 +184,5 @@ public class FilmeForm {
 	public void setUsuarioSessao(Usuario usuarioSessao) {
 		this.usuarioSessao = usuarioSessao;
 	}
-	
-	
+
 }

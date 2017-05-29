@@ -31,10 +31,10 @@
 	<h:form>
 
 			Buscar Filme: 
-		<h:inputText class="w3-bar-item" value="#{usuario.nome}"
+		<h:inputText class="w3-bar-item" value="#{FilmeForm.buscar.busca}"
 			pt:placeholder="Pesquisa" style=" padding: 16px"></h:inputText>
 
-		<h:selectOneRadio value="#{usuario.nome}">
+		<h:selectOneRadio value="#{FilmeForm.buscar.buscaTipo}">
 			<f:selectItem class="w3-bar-item w3-button w3-padding-16"
 				itemValue="titulo" itemLabel="Por Tìtulo" />
 			<f:selectItem class="w3-bar-item w3-button w3-padding-16"
