@@ -27,6 +27,9 @@ public class FilmeForm {
 	private List<Filme> cincoMelhores;
 	private List<Filme> cincoRecentes;
 	private List<Filme> cincoFavoritos;
+	private int idBusca;
+	private String tituloAutor;
+	private String busca;
 
 	@ManagedProperty(value = "#{usuarioLogado}")
 	private Usuario usuarioSessao;
@@ -103,17 +106,18 @@ public class FilmeForm {
 		return filmesDoBanco;
 	}
 
-	public List<Filme> buscar(String busca, String buscaTipo) {
-
+	public List<Filme> buscar() {
+		
+		
 		FilmeDao fdao = new FilmeDao();
 
-		if (buscaTipo.equals("titulo")) {
+		if (tituloAutor.equals("titulo")) {
 			System.out.println(fdao.buscarTitulo(busca));
 
 			return fdao.buscarTitulo(busca);
 		} else {
 
-			if (buscaTipo.equals("ator")) {
+			if (tituloAutor.equals("ator")) {
 				return fdao.buscarAtor(busca);
 			} else {
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Nenhum Resultado Foi Encontrado"));
@@ -123,15 +127,16 @@ public class FilmeForm {
 
 	}
 
-	public void darLike(int id) {
+	public void darLike() {
+		
 		FilmeDao fdao = new FilmeDao();
-		fdao.gostar(id);
+		fdao.gostar(idBusca);
 
 	}
 
-	public void darDislike(int id) {
+	public void darDislike() {
 		FilmeDao fdao = new FilmeDao();
-		fdao.desgostar(id);
+		fdao.desgostar(idBusca);
 
 	}
 
@@ -184,5 +189,33 @@ public class FilmeForm {
 	public void setUsuarioSessao(Usuario usuarioSessao) {
 		this.usuarioSessao = usuarioSessao;
 	}
+
+	public int getIdBusca() {
+		return idBusca;
+	}
+
+	public void setIdBusca(int idBusca) {
+		this.idBusca = idBusca;
+	}
+
+	public String getTituloAutor() {
+		return tituloAutor;
+	}
+
+	public void setTituloAutor(String tituloAutor) {
+		this.tituloAutor = tituloAutor;
+	}
+
+	public String getBusca() {
+		return busca;
+	}
+
+	public void setBusca(String busca) {
+		this.busca = busca;
+	}
+	
+	
+	
+	
 
 }

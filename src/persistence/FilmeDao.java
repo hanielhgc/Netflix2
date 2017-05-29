@@ -17,7 +17,9 @@ import beans.Filme;
 public class FilmeDao {
 	
 	
-	public void gostar(Integer id){
+	public void gostar(int id){
+		String id2;
+		id2 = Integer.toString(id);
 		Connection conexao = null;
 		PreparedStatement pstmt = null;
 		String sql = "UPDATE filme SET qtde_likes= qtde_likes +1 WHERE id=?";
@@ -26,10 +28,10 @@ public class FilmeDao {
 			conexao = Conexao.getConnection();
 			pstmt = conexao.prepareStatement(sql);
 			
-			pstmt.setInt(1, id);
-			ResultSet rs = pstmt.executeQuery();
+			pstmt.setString(1, id2);
+			pstmt.executeUpdate();
 			
-			rs.close();
+		//	rs.close();
 			pstmt.close();
 			
 		} catch (SQLException e) {
@@ -40,24 +42,25 @@ public class FilmeDao {
 	
 	
 	public void desgostar(Integer id){
+		String id2;
+		id2 = Integer.toString(id);
 		Connection conexao = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE filme SET qtde_dislikes= qtde_dislikes +1 WHERE id='?'";
+		String sql = "UPDATE filme SET qtde_dislikes= qtde_dislikes +1 WHERE id=?";
 		try {
 
 			conexao = Conexao.getConnection();
 			pstmt = conexao.prepareStatement(sql);
 			
-			pstmt.setInt(1, id);
-			ResultSet rs = pstmt.executeQuery();
+			pstmt.setString(1, id2);
+			pstmt.executeUpdate();
 			
-			rs.close();
+		//	rs.close();
 			pstmt.close();
 			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
-		}	
-		
+		}		
 	}
 	
 	

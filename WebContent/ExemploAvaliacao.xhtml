@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<title>Nextflix 2.0</title>
+
+	<h:outputStylesheet library="css" name="Estilo.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="Carousel.css"></h:outputStylesheet>
+
+	<link type="text/css" rel="stylesheet"
+		href="https://www.w3schools.com/w3css/4/w3.css"></link>
+	<link type="text/css" rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+
+</h:head>
+<h:body class="bgimgBlack">
+
+
+
+<h:form>
+			Nome: <h:inputText value="#{filmeForm.idBusca}"></h:inputText>
+			<h:commandButton value="Like" action="#{filmeForm.darLike}"></h:commandButton>
+			<h:commandButton value="Dislike" action="#{filmeForm.darDislike}"></h:commandButton>
+		</h:form>
+
+<h:dataTable value="#{filmeForm.filmesDoBanco}" var="f" rowClasses="par,impar" headerClass="titulo">
+			<h:column>
+				<h:outputText value="#{f.titulo}"></h:outputText>
+				<f:facet name="header">
+					Titulo
+				</f:facet>
+			</h:column>
+			<h:column>
+				<h:outputText value="#{f.nome_capa}"></h:outputText>
+				<f:facet name="header">
+					Capa
+				</f:facet>
+			</h:column>
+			<h:column>
+				<h:outputText value="#{f.duracao}"></h:outputText>
+				<f:facet name="header">
+					Duração
+				</f:facet>
+			</h:column>
+		</h:dataTable>
+
+
+
+</h:body>
+</html>
