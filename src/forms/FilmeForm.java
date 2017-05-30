@@ -214,6 +214,14 @@ public class FilmeForm {
 	public void setBusca(String busca) {
 		this.busca = busca;
 	}
+
+	public List<Filme> getResultadoBusca() {
+		return resultadoBusca;
+	}
+
+	public void setResultadoBusca(List<Filme> resultadoBusca) {
+		this.resultadoBusca = resultadoBusca;
+	}
 	
 	
 	

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <title>JSF 2.0 Hello World</title>
+        <style type="text/css">
+			.par{
+				background-color: #9FA8DA;
+			}
+			.impar{
+				background-color: #E8EAF6;
+			}
+			.titulo{
+				background-color: #5C6BC0;
+				color: white;
+			}
+		</style>
+    </h:head>
+    <h:body>
+		<h:form>
+			Nome: <h:inputText value="#{filmeForm.busca}"></h:inputText>
+			<h:selectOneRadio value="#{filmeForm.tituloAutor}">
+			<f:selectItem class="w3-bar-item w3-button w3-padding-16"
+				itemValue="titulo" itemLabel="Por Tìtulo" />
+			<f:selectItem class="w3-bar-item w3-button w3-padding-16"
+				itemValue="ator" itemLabel="Por Ator" />
+		</h:selectOneRadio>
+			<h:commandButton value="Enviar" action="#{filmeForm.buscar}"></h:commandButton>
+		</h:form>
+		
+		<h:dataTable value="#{filmeForm.resultadoBusca}" var="f" rowClasses="par,impar" headerClass="titulo">
+			<h:column>
+				<h:outputText value="#{f.titulo}"></h:outputText>
+				<f:facet name="header">
+					Titulo
+				</f:facet>
+			</h:column>
+			<h:column>
+				<h:outputText value="#{f.atores}"></h:outputText>
+				<f:facet name="header">
+					Atores
+				</f:facet>
+			</h:column>
+			<h:column>
+				<h:outputText value="#{f.genero}"></h:outputText>
+				<f:facet name="header">
+					Genero
+				</f:facet>
+			</h:column>
+		</h:dataTable>
+    </h:body>
+</html>
