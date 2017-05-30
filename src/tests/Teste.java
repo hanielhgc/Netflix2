@@ -1,9 +1,13 @@
 package tests;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import beans.Favoritos;
+import beans.Filme;
 import beans.Usuario;
+import forms.FilmeForm;
 import persistence.FilmeDao;
 import persistence.UsuarioDao;
 
@@ -29,6 +33,20 @@ public class Teste {
 		
 		//FilmeDao fdao = new FilmeDao();
 		//fdao.gostar(1);
+		
+		
+		
+		
+		FilmeForm ff = new FilmeForm();
+		
+		ff.setTituloAutor("titulo");
+		ff.setBusca("d");
+		
+		FilmeDao fdao = new FilmeDao();
+		
+		List<Filme> filmesTeste = fdao.buscarTitulo(ff.getBusca());
+		
+		System.out.println(filmesTeste);
 		
 		
 	}

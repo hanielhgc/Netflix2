@@ -320,7 +320,7 @@ public class FilmeDao {
 		public List<Filme> buscarAtor(String ator) {
 			Connection conexao = null;
 			PreparedStatement pstmt = null;
-			String sql = "select id, titulo, descricao, nome_arquivo, nome_capa, duracao, ano, genero, atores, data_cadastro, qtde_likes, qtde_dislikes from filme where atores LIKE '%?%'";
+			String sql = "select id, titulo, descricao, nome_arquivo, nome_capa, duracao, ano, genero, atores, data_cadastro, qtde_likes, qtde_dislikes from filme where atores LIKE '%"+ator+"%'";
 
 			try {
 
@@ -329,7 +329,7 @@ public class FilmeDao {
 
 				List<Filme> filmes = new ArrayList<Filme>();
 
-				pstmt.setString(1, ator);
+			//	pstmt.setString(1, ator);
 				ResultSet rs = pstmt.executeQuery();
 
 				while (rs.next()) {
@@ -366,7 +366,7 @@ public class FilmeDao {
 	public List<Filme> buscarTitulo(String titulo) {
 		Connection conexao = null;
 		PreparedStatement pstmt = null;
-		String sql = "select id, titulo, descricao, nome_arquivo, nome_capa, duracao, ano, genero, atores, data_cadastro, qtde_likes, qtde_dislikes from filme where titulo LIKE '%?%'";
+		String sql = "select id, titulo, descricao, nome_arquivo, nome_capa, duracao, ano, genero, atores, data_cadastro, qtde_likes, qtde_dislikes from filme where titulo LIKE '%"+titulo+"%'";
 
 		try {
 
@@ -375,7 +375,7 @@ public class FilmeDao {
 
 			List<Filme> filmes = new ArrayList<Filme>();
 
-			pstmt.setString(1, titulo);
+			//pstmt.setString(1, titulo);
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {

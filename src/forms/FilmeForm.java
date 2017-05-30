@@ -27,6 +27,7 @@ public class FilmeForm {
 	private List<Filme> cincoMelhores;
 	private List<Filme> cincoRecentes;
 	private List<Filme> cincoFavoritos;
+	private List<Filme> resultadoBusca;
 	private int idBusca;
 	private String tituloAutor;
 	private String busca;
@@ -106,22 +107,22 @@ public class FilmeForm {
 		return filmesDoBanco;
 	}
 
-	public List<Filme> buscar() {
+	public void buscar() {
 		
 		
 		FilmeDao fdao = new FilmeDao();
 
-		if (tituloAutor.equals("titulo")) {
+		if (getTituloAutor().equals("titulo")) {
 			System.out.println(fdao.buscarTitulo(busca));
 
-			return fdao.buscarTitulo(busca);
+			resultadoBusca = fdao.buscarTitulo(busca);
 		} else {
 
-			if (tituloAutor.equals("ator")) {
-				return fdao.buscarAtor(busca);
+			if (getTituloAutor().equals("ator")) {
+				resultadoBusca = fdao.buscarAtor(busca);
 			} else {
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Nenhum Resultado Foi Encontrado"));
-				return null;
+				
 			}
 		}
 
