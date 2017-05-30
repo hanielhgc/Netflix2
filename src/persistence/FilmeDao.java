@@ -68,7 +68,7 @@ public class FilmeDao {
 
 		Connection conexao = null;
 		PreparedStatement pstmt = null;
-		String sql = "select distinct f.id, f.titulo, f.descricao, f.nome_arquivo, f.nome_capa, f.duracao, f.ano, f.genero, f.atores, f.data_cadastro, f.qtde_likes, f.qtde_dislikes from filme f, lista_favoritos l, usuario u where u.email = '?' and u.email = l.usuario_email and f.id = l.filme_id order by l.data_cadastro desc limit 5";
+		String sql = "select distinct f.id, f.titulo, f.descricao, f.nome_arquivo, f.nome_capa, f.duracao, f.ano, f.genero, f.atores, f.data_cadastro, f.qtde_likes, f.qtde_dislikes from filme f, lista_favoritos l, usuario u where u.email = '"+email+"' and u.email = l.usuario_email and f.id = l.filme_id order by l.data_cadastro desc limit 5";
 
 		try {
 
@@ -77,7 +77,8 @@ public class FilmeDao {
 			
 			List<Filme> filmes = new ArrayList<Filme>();
 			Filme filme = null;
-			pstmt.setString(1, email);
+			
+			//pstmt.setString(1, email);
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {

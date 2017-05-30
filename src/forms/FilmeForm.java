@@ -140,7 +140,7 @@ public class FilmeForm {
 
 	}
 
-	public void cincoFavoritos() {
+	public void mostrarCincoFavoritos() {
 		cincoFavoritos = new ArrayList<>();
 		FilmeDao fdao = new FilmeDao();
 
@@ -148,7 +148,7 @@ public class FilmeForm {
 
 	}
 
-	public void cincoMelhores() {
+	public void mostrarCincoMelhores() {
 		cincoMelhores = new ArrayList<>();
 		FilmeDao fdao = new FilmeDao();
 
@@ -156,7 +156,7 @@ public class FilmeForm {
 
 	}
 
-	public void cincoRecentes() {
+	public void mostrarCincoRecentes() {
 		cincoRecentes = new ArrayList<>();
 		FilmeDao fdao = new FilmeDao();
 

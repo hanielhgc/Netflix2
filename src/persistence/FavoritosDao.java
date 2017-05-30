@@ -52,7 +52,7 @@ public class FavoritosDao {
 		Connection conexao = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "insert into lista_favoritos (usuario_email, filme_id, data_cadastro) values (?, ?, ?)";
+		String sql = "insert into lista_favoritos (usuario_email, filme_id, data_cadastro) values ('?', ?, '?')";
 
 		try {
 			conexao = Conexao.getConnection();
