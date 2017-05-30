@@ -99,7 +99,7 @@
 
 <h:form>
 			<h:inputHidden value="#{filmeForm.nomeBusca}"></h:inputHidden>
-			<h:commandButton value="Exibir Favoritos" action="#{filmeForm.getFavoritos}"></h:commandButton>
+			<h:commandButton class="w3-button w3-round w3-block" value="Exibir Favoritos" action="#{filmeForm.getFavoritos}"></h:commandButton>
 		</h:form>
 
 <h:dataTable value="#{filmeForm.filmesDoBanco}" var="f" rowClasses="par,impar" headerClass="titulo">
