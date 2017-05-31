@@ -8,9 +8,15 @@ h5 {
     font-family: "Poppins", sans-serif; 
 }
 
+.netflix-font {
+	text-align: center;
+	color: firebrick;
+}
+
+
 body {
     font-size: 16px;
-    color: red;
+    color: white;
 }
 
 img {
@@ -28,6 +34,14 @@ img {
 
 a {
     color: inherit
+}
+
+.w3-bar .w3-button {
+	padding: 16px;
+}
+
+.bgimgBlack {
+    background-color: black;
 }
 
 .bgimglg {
