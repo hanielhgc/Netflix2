@@ -17,48 +17,6 @@ public class FavoritosForm {
 	@ManagedProperty(value = "#{usuarioLogado}")
 	static private Usuario usuarioSessao;
 	
-	int idfilme;
-	
-	private Favoritos favorito = new Favoritos();
-
-	public Favoritos getFavorito() {
-		return favorito;
-	}
-
-	public void setFavorito(Favoritos favorito) {
-		this.favorito = favorito;
-	}
-	
-	public void inserir(){
-		FavoritosDao fdao = new FavoritosDao();
-		fdao.inserir(usuarioSessao.getEmail(), idfilme);
-		
-	}
-	
-	public void remover(){
-		FavoritosDao fdao = new FavoritosDao();
-		fdao.remover(usuarioSessao.getEmail(), idfilme);
-	}
-	
-	
-	
-	
-	
-	public String inserir2(Filme f){
-		FavoritosDao fdao = new FavoritosDao();
-		fdao.inserir(usuarioSessao.getEmail(), f.getId());
-		return null;
-	}
-	
-	public String remover2(Filme f){
-		FavoritosDao fdao = new FavoritosDao();
-		fdao.remover(usuarioSessao.getEmail(), f.getId());
-		return null;
-	}
-	
-	
-
-	
 
 	public Usuario getUsuarioSessao() {
 		return usuarioSessao;
@@ -66,14 +24,6 @@ public class FavoritosForm {
 
 	public void setUsuarioSessao(Usuario usuarioSessao) {
 		FavoritosForm.usuarioSessao = usuarioSessao;
-	}
-
-	public int getIdfilme() {
-		return idfilme;
-	}
-
-	public void setIdfilme(int idfilme) {
-		this.idfilme = idfilme;
 	}
 	
 

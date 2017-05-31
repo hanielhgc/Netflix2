@@ -52,15 +52,16 @@ public class FavoritosDao {
 		Connection conexao = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "insert into lista_favoritos (usuario_email, filme_id, data_cadastro) values ('?', ?, '?')";
+		Timestamp ts = new Timestamp(favoritos.getData_cadastro().getTime());
+		String sql = "insert into lista_favoritos (usuario_email, filme_id, data_cadastro) values ('"+email+"', "+id+", '"+ts+"')";
 
 		try {
 			conexao = Conexao.getConnection();
 			pstmt = conexao.prepareStatement(sql);
 
-			pstmt.setString(1, email);
-			pstmt.setInt(2, id);
-			pstmt.setTimestamp(3, new Timestamp(favoritos.getData_cadastro().getTime()));
+		//	pstmt.setString(1, email);
+		//	pstmt.setInt(2, id);
+		//	pstmt.setTimestamp(3, new Timestamp(favoritos.getData_cadastro().getTime()));
 
 			pstmt.executeUpdate();
 

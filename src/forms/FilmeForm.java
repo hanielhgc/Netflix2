@@ -7,14 +7,18 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
+import beans.Favoritos;
 import beans.Filme;
 import beans.Usuario;
+import persistence.FavoritosDao;
 import persistence.FilmeDao;
 
 @ManagedBean
 @RequestScoped
+@ViewScoped
 public class FilmeForm {
 
 	// Usuario
@@ -34,6 +38,7 @@ public class FilmeForm {
 
 	@ManagedProperty(value = "#{usuarioLogado}")
 	private Usuario usuarioSessao;
+	
 
 	public List<Filme> getBuscaTitulo() {
 		return buscaTitulo;
@@ -135,9 +140,9 @@ public class FilmeForm {
 	    mostrarCincoRecentes();
 	}
 
-	public String darLike(Filme f){
+	public String darLike(){
 		FilmeDao fdao = new FilmeDao();
-		fdao.gostar(f.getId());
+		fdao.gostar(idBusca);
 			return null;
 	}
 
@@ -145,7 +150,6 @@ public class FilmeForm {
 		FilmeDao fdao = new FilmeDao();
 		fdao.desgostar(idBusca);
 		return null;
-		
 	}
 	
 	public String passarId(Filme f){
@@ -237,6 +241,60 @@ public class FilmeForm {
 	
 	
 	
+	int idfilme;
+	
+	private Favoritos favorito = new Favoritos();
+
+	public Favoritos getFavorito() {
+		return favorito;
+	}
+
+	public void setFavorito(Favoritos favorito) {
+		this.favorito = favorito;
+	}
+	
+	public void inserir(){
+		FavoritosDao fdao = new FavoritosDao();
+		fdao.inserir(usuarioSessao.getEmail(), idfilme);
+		
+	}
+	
+	public void remover(){
+		FavoritosDao fdao = new FavoritosDao();
+		fdao.remover(usuarioSessao.getEmail(), idfilme);
+	}
+	
+	
+	
+	
+	
+	public String inserir2(){
+		FavoritosDao fdao = new FavoritosDao();
+		fdao.inserir(usuarioSessao.getEmail(), idfilme);
+		return null;
+	}
+	
+	public String remover2(){
+		FavoritosDao fdao = new FavoritosDao();
+		fdao.remover(usuarioSessao.getEmail(), idfilme);
+		return null;
+	}
+	
+	
+
+	
+
+
+	public int getIdfilme() {
+		return idfilme;
+	}
+
+	public void setIdfilme(int idfilme) {
+		this.idfilme = idfilme;
+	}
+	
+	
+
 	
 
 }
