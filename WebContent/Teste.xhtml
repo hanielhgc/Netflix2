@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <title>JSF 2.0 Hello World</title>
+        <style type="text/css">
+			.par{
+				background-color: #9FA8DA;
+			}
+			.impar{
+				background-color: #E8EAF6;
+			}
+			.titulo{
+				background-color: #5C6BC0;
+				color: white;
+			}
+		</style>
+    </h:head>
+    <h:body>
+    
+    <lifecycle>
+        <phase-listener>br.com.caelum.livraria.util.LogPhaseListener</phase-listener>
+    </lifecycle>
+		
+		
+		
+		<h:form>
+			Nome: <h:inputText value="#{filmeForm.busca}"></h:inputText>
+			<h:selectOneRadio value="#{filmeForm.tituloAutor}">
+			<f:selectItem class="w3-bar-item w3-button w3-padding-16"
+				itemValue="titulo" itemLabel="Por Tìtulo" />
+			<f:selectItem class="w3-bar-item w3-button w3-padding-16"
+				itemValue="ator" itemLabel="Por Ator" />
+		</h:selectOneRadio>
+			<h:commandLink value="Cadastrar novo autor" action="#{livroBean.formAutor}" immediate="true"/>
+		
+		</h:form>
+		
+		
+	
+		
+    </h:body>
+</html>

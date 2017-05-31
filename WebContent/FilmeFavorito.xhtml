@@ -51,6 +51,49 @@
 					Genero
 				</f:facet>
 			</h:column>
+			
+			<h:column>
+			<h:form>
+			<h:link outcome="exibirFilme" value="Assistir">
+				<f:param name="titulo" value="#{f.titulo}"></f:param>
+				<f:param name="duracao" value="#{f.duracao}"></f:param>
+				<f:param name="ano" value="#{f.ano}"></f:param>
+				<f:param name="atores" value="#{f.atores}"></f:param>
+				<f:param name="genero" value="#{f.genero}"></f:param>
+				<f:param name="descricao" value="#{f.descricao}"></f:param>
+				<f:param name="likes" value="#{f.qtde_likes}"></f:param>				
+				<f:param name="dislikes" value="#{f.qtde_dislikes}"></f:param>
+				<f:param name="nome_arquivo" value="#{f.nome_arquivo}"></f:param>
+				<f:param name="nome_capa" value="#{f.nome_capa}"></f:param>				
+			</h:link>
+			</h:form>		
+			</h:column>
+					<h:column>
+					<h:form>
+					<h:commandButton value="Adicionar Favorito" action="#{favoritosForm.inserir2(f)}"></h:commandButton>
+					
+					</h:form>
+			</h:column>
+			
+				<h:column>
+					<h:form>
+					<h:commandButton value="Like" action="#{filmeForm.darLike(f)}"></h:commandButton>
+					</h:form>
+			</h:column>
+			
+			
+			
+			<h:column>
+					<h:form>
+					<h:commandButton value="Dislike" action="#{filmeForm.darDislike(f)}"></h:commandButton>
+					</h:form>
+			</h:column>
+			
+			
+			
+			
+			
+			
 		</h:dataTable>
     </h:body>
 </html>

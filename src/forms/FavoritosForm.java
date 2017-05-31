@@ -6,6 +6,7 @@ import javax.faces.bean.RequestScoped;
 import beans.Usuario;
 
 import beans.Favoritos;
+import beans.Filme;
 import beans.Usuario;
 import persistence.FavoritosDao;
 
@@ -38,6 +39,24 @@ public class FavoritosForm {
 		FavoritosDao fdao = new FavoritosDao();
 		fdao.remover(usuarioSessao.getEmail(), idfilme);
 	}
+	
+	
+	
+	
+	
+	public String inserir2(Filme f){
+		FavoritosDao fdao = new FavoritosDao();
+		fdao.inserir(usuarioSessao.getEmail(), f.getId());
+		return null;
+	}
+	
+	public String remover2(Filme f){
+		FavoritosDao fdao = new FavoritosDao();
+		fdao.remover(usuarioSessao.getEmail(), f.getId());
+		return null;
+	}
+	
+	
 
 	
 

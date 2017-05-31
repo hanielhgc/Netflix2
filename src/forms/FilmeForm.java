@@ -127,18 +127,30 @@ public class FilmeForm {
 		}
 
 	}
-
-	public void darLike() {
-		
-		FilmeDao fdao = new FilmeDao();
-		fdao.gostar(idBusca);
-
+	
+	
+	public void exibirTudo() {
+	    mostrarCincoFavoritos();
+	    mostrarCincoMelhores();
+	    mostrarCincoRecentes();
 	}
 
-	public void darDislike() {
+	public String darLike(Filme f){
+		FilmeDao fdao = new FilmeDao();
+		fdao.gostar(f.getId());
+			return null;
+	}
+
+	public String darDislike() {
 		FilmeDao fdao = new FilmeDao();
 		fdao.desgostar(idBusca);
-
+		return null;
+		
+	}
+	
+	public String passarId(Filme f){
+		idBusca = f.getId();
+		return null;
 	}
 
 	public void mostrarCincoFavoritos() {
