@@ -97,6 +97,9 @@ public class FilmeForm {
 	}
 
 	public List<Filme> getFilmesDoBanco() {
+		FilmeDao fdao = new FilmeDao();
+		if (filmesDoBanco == null)
+			filmesDoBanco = fdao.listarFavoritos(usuarioSessao.getEmail());
 		return filmesDoBanco;
 	}
 
@@ -147,6 +150,18 @@ public class FilmeForm {
 	}
 
 	public String darDislike() {
+		FilmeDao fdao = new FilmeDao();
+		fdao.desgostar(idBusca);
+		return null;
+	}
+	
+	public String darLike2(Filme f){
+		FilmeDao fdao = new FilmeDao();
+		fdao.gostar(f.getId());
+			return null;
+	}
+
+	public String darDislike2() {
 		FilmeDao fdao = new FilmeDao();
 		fdao.desgostar(idBusca);
 		return null;

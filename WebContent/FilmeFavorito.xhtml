@@ -77,7 +77,7 @@
 			
 				<h:column>
 					<h:form>
-					<h:commandButton value="Like" action="#{filmeForm.darLike(f)}"></h:commandButton>
+					<h:commandLink action="#{filmeForm.darLike2(f.id)}"><h:outputText value="#{f.id}"/></h:commandLink>
 					</h:form>
 			</h:column>
 			
