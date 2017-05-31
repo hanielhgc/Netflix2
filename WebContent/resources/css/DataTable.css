@@ -1,8 +1,8 @@
 /* Definição de estilos para toda a tabela*/
 .tabela {
-/*	border: 1px solid #ff0000;            */
+	border: 1px solid #ff0000;            
 	border-collapse:collapse;
-	width: 500px;
+	width: 800px;
 }
 
 /* Definição de estilos para linha de cabeçalho da tabela*/
@@ -12,12 +12,11 @@
 	font: 11px Arial, sans-serif;
 	font-weight: bold;
 	color: Snow;
-	background: #000000;
+	background: #404040;
 }
 
 /* Definição de estilos para coluna */
 .primeiro {
-	padding: 10px;
 	text-align: center;
 	font: 11px Arial, sans-serif;
 	background: #c0c0c0;
@@ -25,7 +24,6 @@
 
 /* Definição de estilos para coluna */
 .ultimo {
-	padding: 10px;
 	font: 11px Arial, sans-serif;
 	text-align: center;
 	background: #808080;

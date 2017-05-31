@@ -190,7 +190,7 @@ public class FilmeForm {
 
 			fdao.inserir(filme);
 
-			return "saudacao";
+			return "AdicionarFilme";
 		}
 
 	}

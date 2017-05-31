@@ -95,32 +95,40 @@
 
 		</div>
 
-		<!-- Exibir Melhores -->
+		<!-- Exibir Listas -->
 
 		<h:form>
 			<h:commandButton class="w3-button w3-border netflix-font"
-				value="Exibir Melhores" action="#{filmeForm.exibirTudo}"></h:commandButton>
+				value="Exibir Listas" action="#{filmeForm.exibirTudo}"></h:commandButton>
 		</h:form>
 
 
 		<!-- DataTable Favoritos -->
 
 		<h2 style="Color: firebrick">Favoritos:</h2>
-		<h:dataTable value="#{filmeForm.cincoFavoritos}" var="f"
-			styleClass="tabela" headerClass="cabecalho"
-			columnClasses="ultimo,primeiro">
+		
+		<h:dataTable value="#{filmeForm.cincoFavoritos}" var="f" styleClass="tabela" headerClass="cabecalho" columnClasses="ultimo,primeiro">
+			
 			<h:column>
+			
 				<h:outputText value="#{f.titulo}"></h:outputText>
+				
 				<f:facet name="header">
 					Titulo
 				</f:facet>
+				
 			</h:column>
+			
 			<h:column>
+			
 				<h:outputText value="#{f.nome_capa}" outcome="InicioUsuario"></h:outputText>
+				
 				<f:facet name="header">
 					Capa
 				</f:facet>
+				
 			</h:column>
+			
 			<h:column>
 
 				<a href="#openModal">Mais</a>
