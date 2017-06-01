@@ -23,125 +23,166 @@
 <h:body class="bgimgBlack">
 
 	<!-- Sidebar/Pesquisa -->
+
 	<nav
 		class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-small"
 		style="z-index:3;width:700px;font-weight:bold;display:none;right:0;"
 		id="mySidebar"> <h:link outcome="javascript:void()"
 		onclick="w3_close()"
-		class="w3-bar-item w3-button w3-center w3-padding-32" style="border: 1px solid #B9090B;">Fechar</h:link>
-<h:form>
-			Nome: <h:inputText value="#{filmeForm.busca}" class="w3-input w3-padding-16 w3-border"></h:inputText>
-			<h:selectOneRadio value="#{filmeForm.tituloAutor}" class="w3-bar-item w3-padding-16">
-			<f:selectItem
-				itemValue="titulo" itemLabel="Por Tìtulo" />
-			<f:selectItem 
-				itemValue="ator" itemLabel="Por Ator" />
+		class="w3-bar-item w3-button w3-center w3-padding-32"
+		style="border: 1px solid #B9090B;">Fechar</h:link> <h:form>
+			Nome: <h:inputText value="#{filmeForm.busca}"
+			class="w3-input w3-padding-16 w3-border"></h:inputText>
+
+		<h:selectOneRadio value="#{filmeForm.tituloAutor}"
+			class="w3-bar-item w3-padding-16">
+
+			<f:selectItem itemValue="titulo" itemLabel="Por Tìtulo" />
+			<f:selectItem itemValue="ator" itemLabel="Por Ator" />
+
 		</h:selectOneRadio>
-			<h:commandButton value="Enviar" action="#{filmeForm.buscar}" class="w3-bar-item w3-button w3-center w3-padding-16" style="border: 1px solid #B9090B;"></h:commandButton>
-		</h:form>
-		
-		<h:dataTable value="#{filmeForm.resultadoBusca}" var="f" styleClass="Sidetabela" headerClass="cabecalho"
-			columnClasses="ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, botao, botao, botao">
-			<h:column>
-				<h:outputText value="#{f.titulo}"></h:outputText>
-				<f:facet name="header">
+
+		<h:commandButton value="Enviar" action="#{filmeForm.buscar}"
+			class="w3-bar-item w3-button w3-center w3-padding-16"
+			style="border: 1px solid #B9090B;"></h:commandButton>
+
+	</h:form> <h:dataTable value="#{filmeForm.resultadoBusca}" var="f"
+		styleClass="Sidetabela" headerClass="cabecalho"
+		columnClasses="ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, botao, botao, botao">
+
+		<h:column>
+
+			<h:outputText value="#{f.titulo}"></h:outputText>
+
+			<f:facet name="header">
 					Titulo
 				</f:facet>
-			</h:column>
-			<h:column>
-				<h:graphicImage library="img" name="#{f.nome_capa}" width="140" height="50"></h:graphicImage>
-				<f:facet name="header">
+
+		</h:column>
+
+		<h:column>
+
+			<h:graphicImage library="img" name="#{f.nome_capa}" width="140"
+				height="50"></h:graphicImage>
+
+			<f:facet name="header">
 					Capa
 				</f:facet>
-			</h:column>
-			
-			<h:column>
-				<h:outputText value="#{f.duracao}"></h:outputText>
-				<f:facet name="header">
+
+		</h:column>
+
+		<h:column>
+
+			<h:outputText value="#{f.duracao}"></h:outputText>
+
+			<f:facet name="header">
 					Duracao
 				</f:facet>
-			</h:column>
-			
-			<h:column>
-				<h:outputText value="#{f.ano}"></h:outputText>
-				<f:facet name="header">
+
+		</h:column>
+
+		<h:column>
+
+			<h:outputText value="#{f.ano}"></h:outputText>
+
+			<f:facet name="header">
 					Ano de Lançamento
 				</f:facet>
-			</h:column>
-			
-			<h:column>
-				<h:outputText value="#{f.atores}"></h:outputText>
-				<f:facet name="header">
+
+		</h:column>
+
+		<h:column>
+
+			<h:outputText value="#{f.atores}"></h:outputText>
+
+			<f:facet name="header">
 					Atores
 				</f:facet>
-			</h:column>
-			<h:column>
-				<h:outputText value="#{f.genero}"></h:outputText>
-				<f:facet name="header">
+
+		</h:column>
+
+		<h:column>
+
+			<h:outputText value="#{f.genero}"></h:outputText>
+
+			<f:facet name="header">
 					Genero
 				</f:facet>
-			</h:column>
-			
-			<h:column>
-				<h:outputText value="#{f.qtde_likes}"></h:outputText>
-				<f:facet name="header">
+
+		</h:column>
+
+		<h:column>
+
+			<h:outputText value="#{f.qtde_likes}"></h:outputText>
+
+			<f:facet name="header">
 					Likes
 				</f:facet>
-			</h:column>
-			
-			<h:column>
-				<h:outputText value="#{f.qtde_dislikes}"></h:outputText>
-				<f:facet name="header">
+
+		</h:column>
+
+		<h:column>
+
+			<h:outputText value="#{f.qtde_dislikes}"></h:outputText>
+
+			<f:facet name="header">
 					Dislikes
 				</f:facet>
-			</h:column>
-			
-			<h:column>
-			<h:form>
-			<h:link outcome="exibirFilme" value="Assistir">
-				<f:param name="titulo" value="#{f.titulo}"></f:param>
-				<f:param name="duracao" value="#{f.duracao}"></f:param>
-				<f:param name="ano" value="#{f.ano}"></f:param>
-				<f:param name="atores" value="#{f.atores}"></f:param>
-				<f:param name="genero" value="#{f.genero}"></f:param>
-				<f:param name="descricao" value="#{f.descricao}"></f:param>
-				<f:param name="likes" value="#{f.qtde_likes}"></f:param>				
-				<f:param name="dislikes" value="#{f.qtde_dislikes}"></f:param>
-				<f:param name="nome_arquivo" value="#{f.nome_arquivo}"></f:param>
-				<f:param name="nome_capa" value="#{f.nome_capa}"></f:param>				
-			</h:link>
-			</h:form>		
-			</h:column>
-			<h:column>
-					<h:form>
-					<h:commandButton value="Adicionar Favorito" action="#{favoritosForm.inserir2(f.id)}"></h:commandButton>
-					
-					</h:form>
-			</h:column>
-			
-				<h:column>
-					<h:form>
-					<h:commandLink action="#{filmeForm.darLike2(f.id)}"><h:outputText value="Like"/></h:commandLink>
-					</h:form>
-			</h:column>
-			
-			
-			
-			<h:column>
-					<h:form>
-					<h:commandButton value="Dislike" action="#{filmeForm.darDislike2(f.id)}"></h:commandButton>
-					</h:form>
-			</h:column>
-			
-			
-			
-			
-			
-			
-		</h:dataTable>
-	
 
-</nav>
+		</h:column>
+
+		<h:column>
+			<h:form>
+				<h:link outcome="exibirFilme" value="Assistir">
+					<f:param name="titulo" value="#{f.titulo}"></f:param>
+					<f:param name="duracao" value="#{f.duracao}"></f:param>
+					<f:param name="ano" value="#{f.ano}"></f:param>
+					<f:param name="atores" value="#{f.atores}"></f:param>
+					<f:param name="genero" value="#{f.genero}"></f:param>
+					<f:param name="descricao" value="#{f.descricao}"></f:param>
+					<f:param name="likes" value="#{f.qtde_likes}"></f:param>
+					<f:param name="dislikes" value="#{f.qtde_dislikes}"></f:param>
+					<f:param name="nome_arquivo" value="#{f.nome_arquivo}"></f:param>
+					<f:param name="nome_capa" value="#{f.nome_capa}"></f:param>
+				</h:link>
+			</h:form>
+		</h:column>
+
+		<h:column>
+
+			<h:form>
+
+				<h:commandButton value="Favoritar"
+					action="#{favoritosForm.inserir2(f.id)}"
+					class="w3-bar-item w3-button w3-center w3-padding-16"
+					style="border: 1px solid #B9090B;"></h:commandButton>
+
+			</h:form>
+		</h:column>
+
+		<h:column>
+			<h:form>
+				<h:commandLink action="#{filmeForm.darLike2(f.id)}"
+					class="w3-bar-item w3-button w3-center w3-padding-16"
+					style="border: 1px solid #B9090B;">
+					<h:outputText value="Like" />
+				</h:commandLink>
+			</h:form>
+		</h:column>
+
+
+
+		<h:column>
+			<h:form>
+				<h:commandButton value="Dislike"
+					action="#{filmeForm.darDislike2(f.id)}"
+					class="w3-bar-item w3-button w3-center w3-padding-16"
+					style="border: 1px solid #B9090B;"></h:commandButton>
+			</h:form>
+		</h:column>
+
+
+	</h:dataTable> </nav>
 
 	<!-- Navbar (sit on top) -->
 	<div class="w3-top">
@@ -191,6 +232,13 @@
 			<!-- </c:forEach> -->
 
 		</div>
+		
+		<!-- Exibir Listas -->
+
+		<h:form>
+			<h:commandButton class="w3-button w3-border netflix-font"
+				value="Exibir Listas" action="#{filmeForm.exibirTudo}"></h:commandButton>
+		</h:form>
 
 
 
@@ -200,7 +248,7 @@
 
 		<h:dataTable value="#{filmeForm.cincoFavoritos}" var="f"
 			styleClass="tabela" headerClass="cabecalho"
-			columnClasses="ultimo primeiro">
+			columnClasses="primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo">
 
 			<h:column>
 
@@ -214,7 +262,8 @@
 
 			<h:column>
 
-				<h:graphicImage library="img" name="#{f.nome_capa}" width="250" height="100"></h:graphicImage>
+				<h:graphicImage library="img" name="#{f.nome_capa}" width="250"
+					height="100"></h:graphicImage>
 
 				<f:facet name="header">
 					Capa
@@ -224,33 +273,93 @@
 
 			<h:column>
 
-				<h:link value="Mais" outcome="#openModal" style="align: center"></h:link>
+				<a href="#openModal01" style="align: center"> Mais</a>
+
+				<!-- Modal Box -->
+
+				<div id="openModal01" class="modalDialog">
+					<div>
+
+						<a href="#close" title="Close" class="close">X</a>
+
+						<h2>
+							<h:outputText value="#{f.titulo}" outcome="InicioUsuario"></h:outputText>
+						</h2>
+
+						<h:link outcome="Player" class="w3-button w3-wide"
+							style="padding:0px">
+							<h:graphicImage library="img" name="#{f.nome_capa}" width="250"
+					height="100"></h:graphicImage>
+					
+						</h:link>
+						<br /> ID:
+						<h:outputText value="#{f.id}" outcome="InicioUsuario"></h:outputText>
+						<br /> Descrição:
+						<h:outputText value="#{f.descricao}" outcome="InicioUsuario"></h:outputText>
+						<br /> Duração:
+						<h:outputText value="#{f.duracao}" outcome="InicioUsuario"></h:outputText>
+						<br /> Ano:
+						<h:outputText value="#{f.ano}" outcome="InicioUsuario"></h:outputText>
+						<br /> Gênero:
+						<h:outputText value="#{f.genero}" outcome="InicioUsuario"></h:outputText>
+						<br /> Atores:
+						<h:outputText value="#{f.atores}" outcome="InicioUsuario"></h:outputText>
+						<br /> Likes:
+						<h:outputText value="#{f.qtde_likes}" outcome="InicioUsuario"></h:outputText>
+						<br /> Dislikes:
+						<h:outputText value="#{f.qtde_dislikes}" outcome="InicioUsuario"></h:outputText>
+						<br />
+
+						<p>
+							<h:form>
+			Avaliar (digite o ID): <h:inputText value="#{filmeForm.idBusca}"></h:inputText>
+								<h:commandButton value="Like" action="#{filmeForm.darLike}"></h:commandButton>
+								<i class="fa fa-thumbs-o-up"></i>
+								<h:commandButton value="Dislike"
+									action="#{filmeForm.darDislike}"></h:commandButton>
+								<i class="fa fa-thumbs-o-down"></i>
+							</h:form>
+						</p>
+						<br /> Remover dos Favoritos
+						<h:form>
+			Adicionar aos Favoritos (informe o ID do filme): <h:inputText
+								value="#{filmeForm.idfilme}"></h:inputText>
+							<h:commandButton value="Favoritar" action="#{filmeForm.inserir}"></h:commandButton>
+						</h:form>
+
+					</div>
+				</div>
 
 				<f:facet name="header">
 					Ver Filme
 				</f:facet>
 			</h:column>
-			
+
+			<!--  <h:column>
+				<h:form>
+					<h:commandButton value="Adicionar Favorito"
+						action="#{favoritosForm.inserir2(f.id)}"></h:commandButton>
+
+				</h:form>
+			</h:column>
+
 			<h:column>
-					<h:form>
-					<h:commandButton value="Adicionar Favorito" action="#{favoritosForm.inserir2(f.id)}"></h:commandButton>
-					
-					</h:form>
+				<h:form>
+					<h:commandLink action="#{filmeForm.darLike2(f.id)}">
+						<h:outputText value="Like" />
+					</h:commandLink>
+				</h:form>
 			</h:column>
-			
-				<h:column>
-					<h:form>
-					<h:commandLink action="#{filmeForm.darLike2(f.id)}"><h:outputText value="Like"/></h:commandLink>
-					</h:form>
-			</h:column>
-			
-			
-			
+
+
+
 			<h:column>
-					<h:form>
-					<h:commandButton value="Dislike" action="#{filmeForm.darDislike2(f.id)}"></h:commandButton>
-					</h:form>
-			</h:column>
+				<h:form>
+					<h:commandButton value="Dislike"
+						action="#{filmeForm.darDislike2(f.id)}"></h:commandButton>
+				</h:form>
+			</h:column>  -->
+			
 		</h:dataTable>
 
 
@@ -262,7 +371,7 @@
 
 		<h:dataTable value="#{filmeForm.cincoRecentes}" var="f"
 			styleClass="tabela" headerClass="cabecalho"
-			columnClasses="ultimo,primeiro">
+			columnClasses="primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo">
 
 			<h:column>
 
@@ -276,7 +385,8 @@
 
 			<h:column>
 
-				<h:graphicImage library="img" name="#{f.nome_capa}" width="250" height="100"></h:graphicImage>
+				<h:graphicImage library="img" name="#{f.nome_capa}" width="250"
+					height="100"></h:graphicImage>
 
 				<f:facet name="header">
 					Capa
@@ -286,34 +396,92 @@
 
 			<h:column>
 
-				<h:link value="Mais" outcome="#openModal" style="align: center"></h:link>
+				<a href="#openModal02" style="align: center"> Mais</a>
+
+				<!-- Modal Box -->
+
+				<div id="openModal02" class="modalDialog">
+					<div>
+
+						<a href="#close" title="Close" class="close">X</a>
+
+						<h2>
+							<h:outputText value="#{f.titulo}" outcome="InicioUsuario"></h:outputText>
+						</h2>
+
+						<h:link outcome="Player" class="w3-button w3-wide"
+							style="padding:0px">
+							<h:graphicImage library="img" name="#{f.nome_capa}" width="250"
+					height="100"></h:graphicImage>
+						</h:link>
+						<br /> ID:
+						<h:outputText value="#{f.id}" outcome="InicioUsuario"></h:outputText>
+						<br /> Descrição:
+						<h:outputText value="#{f.descricao}" outcome="InicioUsuario"></h:outputText>
+						<br /> Duração:
+						<h:outputText value="#{f.duracao}" outcome="InicioUsuario"></h:outputText>
+						<br /> Ano:
+						<h:outputText value="#{f.ano}" outcome="InicioUsuario"></h:outputText>
+						<br /> Gênero:
+						<h:outputText value="#{f.genero}" outcome="InicioUsuario"></h:outputText>
+						<br /> Atores:
+						<h:outputText value="#{f.atores}" outcome="InicioUsuario"></h:outputText>
+						<br /> Likes:
+						<h:outputText value="#{f.qtde_likes}" outcome="InicioUsuario"></h:outputText>
+						<br /> Dislikes:
+						<h:outputText value="#{f.qtde_dislikes}" outcome="InicioUsuario"></h:outputText>
+						<br />
+
+						<p>
+							<h:form>
+			Avaliar (digite o ID): <h:inputText value="#{filmeForm.idBusca}"></h:inputText>
+								<h:commandButton value="Like" action="#{filmeForm.darLike}"></h:commandButton>
+								<i class="fa fa-thumbs-o-up"></i>
+								<h:commandButton value="Dislike"
+									action="#{filmeForm.darDislike}"></h:commandButton>
+								<i class="fa fa-thumbs-o-down"></i>
+							</h:form>
+						</p>
+						<br /> Remover dos Favoritos
+						<h:form>
+			Adicionar aos Favoritos (informe o ID do filme): <h:inputText
+								value="#{filmeForm.idfilme}"></h:inputText>
+							<h:commandButton value="Favoritar" action="#{filmeForm.inserir}"></h:commandButton>
+						</h:form>
+
+					</div>
+				</div>
 
 				<f:facet name="header">
 					Ver Filme
 				</f:facet>
 
 			</h:column>
-			
+
+			<!--  <h:column>
+				<h:form>
+					<h:commandButton value="Adicionar Favorito"
+						action="#{favoritosForm.inserir2(f.id)}"></h:commandButton>
+
+				</h:form>
+			</h:column>
+
 			<h:column>
-					<h:form>
-					<h:commandButton value="Adicionar Favorito" action="#{favoritosForm.inserir2(f.id)}"></h:commandButton>
-					
-					</h:form>
+				<h:form>
+					<h:commandLink action="#{filmeForm.darLike2(f.id)}">
+						<h:outputText value="Like" />
+					</h:commandLink>
+				</h:form>
 			</h:column>
-			
-				<h:column>
-					<h:form>
-					<h:commandLink action="#{filmeForm.darLike2(f.id)}"><h:outputText value="Like"/></h:commandLink>
-					</h:form>
-			</h:column>
-			
-			
-			
+
+
+
 			<h:column>
-					<h:form>
-					<h:commandButton value="Dislike" action="#{filmeForm.darDislike2(f.id)}"></h:commandButton>
-					</h:form>
-			</h:column>
+				<h:form>
+					<h:commandButton value="Dislike"
+						action="#{filmeForm.darDislike2(f.id)}"></h:commandButton>
+				</h:form>
+			</h:column>  -->
 
 		</h:dataTable>
 
@@ -323,69 +491,128 @@
 		<!-- DataTable Melhores Avaliados -->
 
 		<h2 style="Color: firebrick">Melhores Avaliados:</h2>
-		
+
 		<h:dataTable value="#{filmeForm.cincoMelhores}" var="f"
 			styleClass="tabela" headerClass="cabecalho"
-			columnClasses="ultimo,primeiro">
-			
+			columnClasses="primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo">
+
 			<h:column>
-			
+
 				<h:outputText value="#{f.titulo}"></h:outputText>
-				
+
 				<f:facet name="header">
 					Titulo
 				</f:facet>
-				
+
 			</h:column>
-			
+
 			<h:column>
-			
-				<h:graphicImage library="img" name="#{f.nome_capa}" width="250" height="100"></h:graphicImage>
-				
+
+				<h:graphicImage library="img" name="#{f.nome_capa}" width="250"
+					height="100"></h:graphicImage>
+
 				<f:facet name="header">
 					Capa
 				</f:facet>
-				
+
 			</h:column>
-			
+
 			<h:column>
-			
-				<h:link value="Mais" outcome="#openModal"  style="align: center"></h:link>
+
+				<a href="#openModal03" style="align: center"> Mais</a>
+
+				<!-- Modal Box -->
+
+				<div id="openModal03" class="modalDialog">
+					<div>
+
+						<a href="#close" title="Close" class="close">X</a>
+
+						<h2>
+							<h:outputText value="#{f.titulo}" outcome="InicioUsuario"></h:outputText>
+						</h2>
+
+						<h:link outcome="Player" class="w3-button w3-wide"
+							style="padding:0px">
+							<h:graphicImage library="img" name="#{f.nome_capa}" width="250"
+					height="100"></h:graphicImage>
+						</h:link>
+						<br /> ID:
+						<h:outputText value="#{f.id}" outcome="InicioUsuario"></h:outputText>
+						<br /> Descrição:
+						<h:outputText value="#{f.descricao}" outcome="InicioUsuario"></h:outputText>
+						<br /> Duração:
+						<h:outputText value="#{f.duracao}" outcome="InicioUsuario"></h:outputText>
+						<br /> Ano:
+						<h:outputText value="#{f.ano}" outcome="InicioUsuario"></h:outputText>
+						<br /> Gênero:
+						<h:outputText value="#{f.genero}" outcome="InicioUsuario"></h:outputText>
+						<br /> Atores:
+						<h:outputText value="#{f.atores}" outcome="InicioUsuario"></h:outputText>
+						<br /> Likes:
+						<h:outputText value="#{f.qtde_likes}" outcome="InicioUsuario"></h:outputText>
+						<br /> Dislikes:
+						<h:outputText value="#{f.qtde_dislikes}" outcome="InicioUsuario"></h:outputText>
+						<br />
+
+						<p>
+							<h:form>
+			Avaliar (digite o ID): <h:inputText value="#{filmeForm.idBusca}"></h:inputText>
+								<h:commandButton value="Like" action="#{filmeForm.darLike}"></h:commandButton>
+								<i class="fa fa-thumbs-o-up"></i>
+								<h:commandButton value="Dislike"
+									action="#{filmeForm.darDislike}"></h:commandButton>
+								<i class="fa fa-thumbs-o-down"></i>
+							</h:form>
+						</p>
+						<br /> Remover dos Favoritos
+						<h:form>
+			Adicionar aos Favoritos (informe o ID do filme): <h:inputText
+								value="#{filmeForm.idfilme}"></h:inputText>
+							<h:commandButton value="Favoritar" action="#{filmeForm.inserir}"></h:commandButton>
+						</h:form>
+
+					</div>
+				</div>
 
 				<f:facet name="header">
 					Ver Filme
 				</f:facet>
-				
+
 			</h:column>
-			
+
+		<!--	<h:column>
+				<h:form>
+					<h:commandButton value="Adicionar Favorito"
+						action="#{favoritosForm.inserir2(f.id)}"></h:commandButton>
+
+				</h:form>
+			</h:column>
+
 			<h:column>
-					<h:form>
-					<h:commandButton value="Adicionar Favorito" action="#{favoritosForm.inserir2(f.id)}"></h:commandButton>
-					
-					</h:form>
+				<h:form>
+					<h:commandLink action="#{filmeForm.darLike2(f.id)}">
+						<h:outputText value="Like" />
+					</h:commandLink>
+				</h:form>
 			</h:column>
-			
-				<h:column>
-					<h:form>
-					<h:commandLink action="#{filmeForm.darLike2(f.id)}"><h:outputText value="Like"/></h:commandLink>
-					</h:form>
-			</h:column>
-			
-			
-			
+
+
+
 			<h:column>
-					<h:form>
-					<h:commandButton value="Dislike" action="#{filmeForm.darDislike2(f.id)}"></h:commandButton>
-					</h:form>
-			</h:column>
-			
+				<h:form>
+					<h:commandButton value="Dislike"
+						action="#{filmeForm.darDislike2(f.id)}"></h:commandButton>
+				</h:form>
+			</h:column> -->
+
 		</h:dataTable>
 
 
 
-		<!--  	<a href="#openModal">Open Modal</a>
+		<!--	<a href="#openModal">Open Modal</a>
 
-	<div id="openModal" class="modalDialog">
+		  <div id="openModal" class="modalDialog">
 		<div>
 			<a href="#close" title="Close" class="close">X</a>
 
@@ -409,57 +636,6 @@
 	</div> -->
 
 	</div>
-
-	<!-- Modal Box -->
-
-	<div id="openModal" class="modalDialog">
-
-		<a href="#close" title="Close" class="close">X</a>
-
-		<h2>
-			<h:outputText value="#{f.titulo}" outcome="InicioUsuario"></h:outputText>
-		</h2>
-
-		<h:link outcome="Player" class="w3-button w3-wide" style="padding:0px">
-			<img alt="HOME" src="resources\img\Netflix_logo.png" width="58"
-				height="58"></img>
-		</h:link>
-		<br /> ID:
-		<h:outputText value="#{f.id}" outcome="InicioUsuario"></h:outputText>
-		<br /> Descrição:
-		<h:outputText value="#{f.descricao}" outcome="InicioUsuario"></h:outputText>
-		<br /> Duração:
-		<h:outputText value="#{f.duracao}" outcome="InicioUsuario"></h:outputText>
-		<br /> Ano:
-		<h:outputText value="#{f.ano}" outcome="InicioUsuario"></h:outputText>
-		<br /> Gênero:
-		<h:outputText value="#{f.genero}" outcome="InicioUsuario"></h:outputText>
-		<br /> Atores:
-		<h:outputText value="#{f.atores}" outcome="InicioUsuario"></h:outputText>
-		<br /> Likes:
-		<h:outputText value="#{f.qtde_likes}" outcome="InicioUsuario"></h:outputText>
-		<br /> Dislikes:
-		<h:outputText value="#{f.qtde_dislikes}" outcome="InicioUsuario"></h:outputText>
-		<br />
-
-		<p>
-			<h:form>
-			Avaliar (digite o ID): <h:inputText value="#{filmeForm.idBusca}"></h:inputText>
-				<h:commandButton value="Like" action="#{filmeForm.darLike}"></h:commandButton>
-				<i class="fa fa-thumbs-o-up"></i>
-				<h:commandButton value="Dislike" action="#{filmeForm.darDislike}"></h:commandButton>
-				<i class="fa fa-thumbs-o-down"></i>
-			</h:form>
-		</p>
-		<br /> Remover dos Favoritos
-		<h:form>
-			Adicionar aos Favoritos (informe o ID do filme): <h:inputText
-				value="#{filmeForm.idfilme}"></h:inputText>
-			<h:commandButton value="Favoritar" action="#{filmeForm.inserir}"></h:commandButton>
-		</h:form>
-
-	</div>
-
 
 	<script>
 		// Script to open and close sidebar
