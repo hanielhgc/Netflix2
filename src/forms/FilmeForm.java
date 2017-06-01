@@ -59,7 +59,11 @@ public class FilmeForm {
 	public List<Filme> getCincoMelhores() {
 		FilmeDao fdao = new FilmeDao();
 		if (cincoMelhores == null)
+<<<<<<< HEAD
 			cincoMelhores = fdao.mostrar5melhores();
+=======
+			cincoMelhores = fdao.mostrar5Favoritos(usuarioSessao.getEmail());
+>>>>>>> origin/master
 		return cincoMelhores;
 	}
 
