@@ -233,12 +233,12 @@
 
 		</div>
 
-		<!-- Exibir Listas -->
+		<!-- Exibir Listas 
 
 		<h:form>
 			<h:commandButton class="w3-button w3-border netflix-font"
 				value="Exibir Listas" action="#{filmeForm.exibirTudo}"></h:commandButton>
-		</h:form>
+		</h:form> -->
 
 
 
@@ -285,6 +285,11 @@
 						<h2>
 							<h:outputText value="#{f.titulo}" outcome="InicioUsuario"></h:outputText>
 						</h2>
+
+						<video id="myVideo" controls="controls"
+							autoplay="true"> <source
+							src="resources/videos/#{f.nome_arquivo}" width="80px" type="video/mp4" />
+						</video>
 
 						<h:link outcome="Player" class="w3-button w3-wide"
 							style="padding:0px">
@@ -409,6 +414,11 @@
 						<h2>
 							<h:outputText value="#{f.titulo}" outcome="InicioUsuario"></h:outputText>
 						</h2>
+						
+						<video id="myVideo" controls="controls"
+							autoplay="true"> <source
+							src="resources/videos/#{f.nome_arquivo}" width="80px" type="video/mp4" />
+						</video>
 
 						<h:link outcome="Player" class="w3-button w3-wide"
 							style="padding:0px">
@@ -532,6 +542,11 @@
 						<h2>
 							<h:outputText value="#{f.titulo}" outcome="InicioUsuario"></h:outputText>
 						</h2>
+						
+						<video id="myVideo" controls="controls"
+							autoplay="true"> <source
+							src="resources/videos/#{f.nome_arquivo}" width="80px" type="video/mp4" />
+						</video>
 
 						<h:link outcome="Player" class="w3-button w3-wide"
 							style="padding:0px">
