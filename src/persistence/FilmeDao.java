@@ -197,7 +197,7 @@ public class FilmeDao {
 
 		Connection conexao = null;
 		PreparedStatement pstmt = null;
-		String sql = "select * from filme order by qtde_likes limit 5 ";
+		String sql = "select * from filme order by qtde_likes desc limit 5 ";
 
 		try {
 
@@ -258,7 +258,7 @@ public class FilmeDao {
 
 		Connection conexao = null;
 		PreparedStatement pstmt = null;
-		String sql = "select * from filme order by data_cadastro limit 5 ";
+		String sql = "select * from filme order by data_cadastro desc limit 5 ";
 
 		try {
 

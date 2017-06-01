@@ -18,6 +18,20 @@
 		href="https://www.w3schools.com/w3css/4/w3.css"></link>
 	<link type="text/css" rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+		
+		<style>
+		.videoContainer 
+		{
+		    position:relative;
+		    overflow: hidden;
+		}
+		
+		.videoContainer video 
+		{
+		    min-width: 50%;
+		    min-height: 80px;
+		}
+	</style>
 
 </h:head>
 <h:body class="bgimgBlack">
@@ -133,7 +147,10 @@
 
 		<h:column>
 			<h:form>
-				<h:link outcome="Player" value="Assistir">
+				<h:link outcome="Player" class="w3-bar-item w3-button w3-center w3-padding-16" style="border: 1px solid #B9090B;">
+				
+				<i class="fa fa-play"></i>
+				
 					<f:param name="titulo" value="#{f.titulo}"></f:param>
 					<f:param name="duracao" value="#{f.duracao}"></f:param>
 					<f:param name="ano" value="#{f.ano}"></f:param>
@@ -152,10 +169,10 @@
 
 			<h:form>
 
-				<h:commandButton value="Favoritar"
+				<h:commandLink 
 					action="#{favoritosForm.inserir2(f.id)}"
 					class="w3-bar-item w3-button w3-center w3-padding-16"
-					style="border: 1px solid #B9090B;"></h:commandButton>
+					style="border: 1px solid #B9090B;"><i class="fa fa-heart-o"></i></h:commandLink>
 
 			</h:form>
 		</h:column>
@@ -164,8 +181,7 @@
 			<h:form>
 				<h:commandLink action="#{filmeForm.darLike2(f.id)}"
 					class="w3-bar-item w3-button w3-center w3-padding-16"
-					style="border: 1px solid #B9090B;">
-					<h:outputText value="Like" />
+					style="border: 1px solid #B9090B;"><i class="fa fa-thumbs-o-up"></i>
 				</h:commandLink>
 			</h:form>
 		</h:column>
@@ -174,10 +190,10 @@
 
 		<h:column>
 			<h:form>
-				<h:commandButton value="Dislike"
+				<h:commandLink
 					action="#{filmeForm.darDislike2(f.id)}"
 					class="w3-bar-item w3-button w3-center w3-padding-16"
-					style="border: 1px solid #B9090B;"></h:commandButton>
+					style="border: 1px solid #B9090B;"><i class="fa fa-thumbs-o-down"></i></h:commandLink>
 			</h:form>
 		</h:column>
 
@@ -233,12 +249,12 @@
 
 		</div>
 
-		<!-- Exibir Listas 
+		<!-- Exibir Listas -->
 
 		<h:form>
 			<h:commandButton class="w3-button w3-border netflix-font"
 				value="Exibir Listas" action="#{filmeForm.exibirTudo}"></h:commandButton>
-		</h:form> -->
+		</h:form>
 
 
 
@@ -286,10 +302,12 @@
 							<h:outputText value="#{f.titulo}" outcome="InicioUsuario"></h:outputText>
 						</h2>
 
+						<div class="videoContainer">
 						<video id="myVideo" controls="controls"
 							autoplay="true"> <source
 							src="resources/videos/#{f.nome_arquivo}" width="80px" type="video/mp4" />
 						</video>
+						</div>
 
 						<h:link outcome="Player" class="w3-button w3-wide"
 							style="padding:0px">
@@ -415,10 +433,12 @@
 							<h:outputText value="#{f.titulo}" outcome="InicioUsuario"></h:outputText>
 						</h2>
 						
+						<div class="videoContainer">
 						<video id="myVideo" controls="controls"
 							autoplay="true"> <source
 							src="resources/videos/#{f.nome_arquivo}" width="80px" type="video/mp4" />
 						</video>
+						</div>
 
 						<h:link outcome="Player" class="w3-button w3-wide"
 							style="padding:0px">
@@ -543,10 +563,12 @@
 							<h:outputText value="#{f.titulo}" outcome="InicioUsuario"></h:outputText>
 						</h2>
 						
+						<div class="videoContainer">
 						<video id="myVideo" controls="controls"
 							autoplay="true"> <source
 							src="resources/videos/#{f.nome_arquivo}" width="80px" type="video/mp4" />
 						</video>
+						</div>
 
 						<h:link outcome="Player" class="w3-button w3-wide"
 							style="padding:0px">

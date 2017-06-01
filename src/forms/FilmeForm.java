@@ -59,7 +59,7 @@ public class FilmeForm {
 	public List<Filme> getCincoMelhores() {
 		FilmeDao fdao = new FilmeDao();
 		if (cincoMelhores == null)
-			cincoMelhores = fdao.listarFavoritos(usuarioSessao.getEmail());
+			cincoMelhores = fdao.mostrar5melhores();
 		return cincoMelhores;
 	}
 
@@ -70,7 +70,7 @@ public class FilmeForm {
 	public List<Filme> getCincoRecentes() {
 		FilmeDao fdao = new FilmeDao();
 		if (cincoRecentes == null)
-			cincoRecentes = fdao.listarFavoritos(usuarioSessao.getEmail());
+			cincoRecentes = fdao.mostrar5recentes();
 		return cincoRecentes;
 	}
 
@@ -81,7 +81,7 @@ public class FilmeForm {
 	public List<Filme> getCincoFavoritos() {
 		FilmeDao fdao = new FilmeDao();
 		if (cincoFavoritos == null)
-			cincoFavoritos = fdao.listarFavoritos(usuarioSessao.getEmail());
+			cincoFavoritos = fdao.mostrar5Favoritos(usuarioSessao.getEmail());
 		return cincoFavoritos;
 	}
 
