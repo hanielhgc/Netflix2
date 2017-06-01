@@ -1,13 +1,20 @@
 /* Definição de estilos para toda a tabela*/
 .tabela {
-	border: 1px solid #ff0000;            
-	border-collapse:collapse;
+	border: 1px solid #ff0000;
+	border-collapse: collapse;
 	width: 800px;
+	text-align: center;
+}
+
+.Sidetabela {
+	border: 1px solid #ff0000;
+	border-collapse: collapse;
+	width: 700px;
 }
 
 /* Definição de estilos para linha de cabeçalho da tabela*/
 .cabecalho {
-	padding: 10px;
+	padding: 20px;
 	text-align: center;
 	font: 11px Arial, sans-serif;
 	font-weight: bold;
@@ -27,4 +34,11 @@
 	font: 11px Arial, sans-serif;
 	text-align: center;
 	background: #808080;
+}
+
+.botao {
+	font: 11px Arial, sans-serif;
+	text-align: center;
+	background: #676767;
+	border: 1px red;
 }

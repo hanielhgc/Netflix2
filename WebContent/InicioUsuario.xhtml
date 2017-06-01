@@ -25,22 +25,23 @@
 	<!-- Sidebar/Pesquisa -->
 	<nav
 		class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-small"
-		style="z-index:3;width:250px;font-weight:bold;display:none;right:0;"
+		style="z-index:3;width:700px;font-weight:bold;display:none;right:0;"
 		id="mySidebar"> <h:link outcome="javascript:void()"
 		onclick="w3_close()"
-		class="w3-bar-item w3-button w3-center w3-padding-32">Fechar</h:link>
+		class="w3-bar-item w3-button w3-center w3-padding-32" style="border: 1px solid #B9090B;">Fechar</h:link>
 <h:form>
-			Nome: <h:inputText value="#{filmeForm.busca}"></h:inputText>
-			<h:selectOneRadio value="#{filmeForm.tituloAutor}">
-			<f:selectItem class="w3-bar-item w3-button w3-padding-16"
+			Nome: <h:inputText value="#{filmeForm.busca}" class="w3-input w3-padding-16 w3-border"></h:inputText>
+			<h:selectOneRadio value="#{filmeForm.tituloAutor}" class="w3-bar-item w3-padding-16">
+			<f:selectItem
 				itemValue="titulo" itemLabel="Por Tìtulo" />
-			<f:selectItem class="w3-bar-item w3-button w3-padding-16"
+			<f:selectItem 
 				itemValue="ator" itemLabel="Por Ator" />
 		</h:selectOneRadio>
-			<h:commandButton value="Enviar" action="#{filmeForm.buscar}"></h:commandButton>
+			<h:commandButton value="Enviar" action="#{filmeForm.buscar}" class="w3-bar-item w3-button w3-center w3-padding-16" style="border: 1px solid #B9090B;"></h:commandButton>
 		</h:form>
 		
-		<h:dataTable value="#{filmeForm.resultadoBusca}" var="f" rowClasses="par,impar" headerClass="titulo">
+		<h:dataTable value="#{filmeForm.resultadoBusca}" var="f" styleClass="Sidetabela" headerClass="cabecalho"
+			columnClasses="ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, botao, botao, botao">
 			<h:column>
 				<h:outputText value="#{f.titulo}"></h:outputText>
 				<f:facet name="header">
@@ -48,7 +49,7 @@
 				</f:facet>
 			</h:column>
 			<h:column>
-				<h:outputText value="#{f.nome_capa}"></h:outputText>
+				<h:graphicImage library="img" name="#{f.nome_capa}" width="140" height="50"></h:graphicImage>
 				<f:facet name="header">
 					Capa
 				</f:facet>
@@ -113,14 +114,14 @@
 			</h:column>
 					<h:column>
 					<h:form>
-					<h:commandButton value="Adicionar Favorito" action="#{filmeForm.inserir2(f)}"></h:commandButton>
+					<h:commandButton value="Adicionar Favorito" action="#{filmeForm.inserir2(f)}" class="w3-bar-item w3-button w3-center w3-padding-16" style="font-style: italic;font-weight: 900;"></h:commandButton>
 					
 					</h:form>
 			</h:column>
 			
 				<h:column>
 					<h:form>
-					<h:commandButton value="Like" action="#{filmeForm.darLike(f)}"></h:commandButton>
+					<h:commandButton value="Like" action="#{filmeForm.darLike(f)}" class="w3-bar-item w3-button w3-center w3-padding-16" style="font-style: italic;font-weight: 900;"></h:commandButton>
 					</h:form>
 			</h:column>
 			
@@ -128,7 +129,7 @@
 			
 			<h:column>
 					<h:form>
-					<h:commandButton value="Dislike" action="#{filmeForm.darDislike(f)}"></h:commandButton>
+					<h:commandButton value="Dislike" action="#{filmeForm.darDislike(f)}" class="w3-bar-item w3-button w3-center w3-padding-16" style="font-style: italic;font-weight: 900;"></h:commandButton>
 					</h:form>
 			</h:column>
 			
@@ -154,8 +155,8 @@
 			<!-- Right-sided navbar links -->
 			<div class="w3-right">
 				<h:form>
-					<h:link outcome="Favoritos" class="w3-bar-item w3-button">
-						<i class="fa fa-star"></i> Favoritos</h:link>
+					<!-- <h:link outcome="Favoritos" class="w3-bar-item w3-button">
+						<i class="fa fa-star"></i> Favoritos</h:link>  -->
 					<h:link outcome="EditarUsuario" class="w3-bar-item w3-button">
 						<i class="fa fa-user"></i>&nbsp;<h:outputText
 							value="#{usuarioLogado.nome}"></h:outputText>
@@ -205,7 +206,7 @@
 
 		<h:dataTable value="#{filmeForm.cincoFavoritos}" var="f"
 			styleClass="tabela" headerClass="cabecalho"
-			columnClasses="ultimo,primeiro">
+			columnClasses="ultimo primeiro">
 
 			<h:column>
 
@@ -219,7 +220,7 @@
 
 			<h:column>
 
-				<img src="#{f.nome_capa}"></img>
+				<h:graphicImage library="img" name="#{f.nome_capa}" width="250" height="100"></h:graphicImage>
 
 				<f:facet name="header">
 					Capa
@@ -260,7 +261,7 @@
 
 			<h:column>
 
-				<h:outputText value="#{f.nome_capa}" outcome="InicioUsuario"></h:outputText>
+				<h:graphicImage library="img" name="#{f.nome_capa}" width="250" height="100"></h:graphicImage>
 
 				<f:facet name="header">
 					Capa
@@ -303,7 +304,7 @@
 			
 			<h:column>
 			
-				<h:outputText value="#{f.nome_capa}" outcome="InicioUsuario"></h:outputText>
+				<h:graphicImage library="img" name="#{f.nome_capa}" width="250" height="100"></h:graphicImage>
 				
 				<f:facet name="header">
 					Capa
