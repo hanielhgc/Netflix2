@@ -57,6 +57,9 @@ public class FilmeForm {
 	}
 
 	public List<Filme> getCincoMelhores() {
+		FilmeDao fdao = new FilmeDao();
+		if (cincoMelhores == null)
+			cincoMelhores = fdao.listarFavoritos(usuarioSessao.getEmail());
 		return cincoMelhores;
 	}
 
@@ -65,6 +68,9 @@ public class FilmeForm {
 	}
 
 	public List<Filme> getCincoRecentes() {
+		FilmeDao fdao = new FilmeDao();
+		if (cincoRecentes == null)
+			cincoRecentes = fdao.listarFavoritos(usuarioSessao.getEmail());
 		return cincoRecentes;
 	}
 
@@ -73,6 +79,9 @@ public class FilmeForm {
 	}
 
 	public List<Filme> getCincoFavoritos() {
+		FilmeDao fdao = new FilmeDao();
+		if (cincoFavoritos == null)
+			cincoFavoritos = fdao.listarFavoritos(usuarioSessao.getEmail());
 		return cincoFavoritos;
 	}
 
@@ -155,9 +164,9 @@ public class FilmeForm {
 		return null;
 	}
 	
-	public String darLike2(Filme f){
+	public String darLike2(int f){
 		FilmeDao fdao = new FilmeDao();
-		fdao.gostar(f.getId());
+		fdao.gostar(f);
 			return null;
 	}
 

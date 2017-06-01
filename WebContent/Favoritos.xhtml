@@ -112,14 +112,14 @@
 			</h:column>
 					<h:column>
 					<h:form>
-					<h:commandButton value="Adicionar Favorito" action="#{filmeForm.inserir2(f)}"></h:commandButton>
+					<h:commandButton value="Adicionar Favorito" action="#{favoritosForm.inserir2(f.id)}"></h:commandButton>
 					
 					</h:form>
 			</h:column>
 			
 				<h:column>
 					<h:form>
-					<h:commandButton value="Like" action="#{filmeForm.darLike(f)}"></h:commandButton>
+					<h:commandLink action="#{filmeForm.darLike2(f.id)}"><h:outputText value="Like"/></h:commandLink>
 					</h:form>
 			</h:column>
 			
@@ -127,7 +127,7 @@
 			
 			<h:column>
 					<h:form>
-					<h:commandButton value="Dislike" action="#{filmeForm.darDislike(f)}"></h:commandButton>
+					<h:commandButton value="Dislike" action="#{filmeForm.darDislike2(f.id)}"></h:commandButton>
 					</h:form>
 			</h:column>
 			
@@ -194,10 +194,6 @@
 		
 	</div>
 
-<h:form>
-			<h:inputHidden value="#{filmeForm.nomeBusca}"></h:inputHidden>
-			<h:commandButton class="w3-button w3-round w3-block" value="Exibir Favoritos" action="#{filmeForm.getFavoritos}"></h:commandButton>
-		</h:form>
 
 <h:dataTable value="#{filmeForm.filmesDoBanco}" var="f" rowClasses="par,impar" headerClass="titulo">
 			<h:column>
