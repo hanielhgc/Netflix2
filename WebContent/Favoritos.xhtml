@@ -10,7 +10,8 @@
 	<title>Nextflix 2.0</title>
 
 	<h:outputStylesheet library="css" name="Estilo.css"></h:outputStylesheet>
-	<h:outputStylesheet library="css" name="Carousel.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="Modal.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="DataTable.css"></h:outputStylesheet>
 
 	<link type="text/css" rel="stylesheet"
 		href="https://www.w3schools.com/w3css/4/w3.css"></link>
@@ -27,125 +28,129 @@
 		id="mySidebar"> <h:link outcome="javascript:void()"
 		onclick="w3_close()"
 		class="w3-bar-item w3-button w3-center w3-padding-32">Fechar</h:link>
-	
-<h:form>
+
+	<h:form>
 			Nome: <h:inputText value="#{filmeForm.busca}"></h:inputText>
-			<h:selectOneRadio value="#{filmeForm.tituloAutor}">
+		<h:selectOneRadio value="#{filmeForm.tituloAutor}">
 			<f:selectItem class="w3-bar-item w3-button w3-padding-16"
 				itemValue="titulo" itemLabel="Por Tìtulo" />
 			<f:selectItem class="w3-bar-item w3-button w3-padding-16"
 				itemValue="ator" itemLabel="Por Ator" />
 		</h:selectOneRadio>
-			<h:commandButton value="Enviar" action="#{filmeForm.buscar}"></h:commandButton>
-		</h:form>
-		
-		<h:dataTable value="#{filmeForm.resultadoBusca}" var="f" rowClasses="par,impar" headerClass="titulo">
-			<h:column>
-				<h:outputText value="#{f.titulo}"></h:outputText>
-				<f:facet name="header">
+		<h:commandButton value="Enviar" action="#{filmeForm.buscar}"></h:commandButton>
+	</h:form> <h:dataTable value="#{filmeForm.resultadoBusca}" var="f"
+		rowClasses="par,impar" headerClass="titulo">
+		<h:column>
+			<h:outputText value="#{f.titulo}"></h:outputText>
+			<f:facet name="header">
 					Titulo
 				</f:facet>
-			</h:column>
-			<h:column>
-				<h:outputText value="#{f.nome_capa}"></h:outputText>
-				<f:facet name="header">
+		</h:column>
+		<h:column>
+			<h:outputText value="#{f.nome_capa}"></h:outputText>
+			<f:facet name="header">
 					Capa
 				</f:facet>
-			</h:column>
-			
-			<h:column>
-				<h:outputText value="#{f.duracao}"></h:outputText>
-				<f:facet name="header">
+		</h:column>
+
+		<h:column>
+			<h:outputText value="#{f.duracao}"></h:outputText>
+			<f:facet name="header">
 					Duracao
 				</f:facet>
-			</h:column>
-			
-			<h:column>
-				<h:outputText value="#{f.ano}"></h:outputText>
-				<f:facet name="header">
+		</h:column>
+
+		<h:column>
+			<h:outputText value="#{f.ano}"></h:outputText>
+			<f:facet name="header">
 					Ano de Lançamento
 				</f:facet>
-			</h:column>
-			
-			<h:column>
-				<h:outputText value="#{f.atores}"></h:outputText>
-				<f:facet name="header">
+		</h:column>
+
+		<h:column>
+			<h:outputText value="#{f.atores}"></h:outputText>
+			<f:facet name="header">
 					Atores
 				</f:facet>
-			</h:column>
-			<h:column>
-				<h:outputText value="#{f.genero}"></h:outputText>
-				<f:facet name="header">
+		</h:column>
+		<h:column>
+			<h:outputText value="#{f.genero}"></h:outputText>
+			<f:facet name="header">
 					Genero
 				</f:facet>
-			</h:column>
-			
-			<h:column>
-				<h:outputText value="#{f.qtde_likes}"></h:outputText>
-				<f:facet name="header">
+		</h:column>
+
+		<h:column>
+			<h:outputText value="#{f.qtde_likes}"></h:outputText>
+			<f:facet name="header">
 					Likes
 				</f:facet>
-			</h:column>
-			
-			<h:column>
-				<h:outputText value="#{f.qtde_dislikes}"></h:outputText>
-				<f:facet name="header">
+		</h:column>
+
+		<h:column>
+			<h:outputText value="#{f.qtde_dislikes}"></h:outputText>
+			<f:facet name="header">
 					Dislikes
 				</f:facet>
-			</h:column>
-			
-			<h:column>
+		</h:column>
+
+		<h:column>
 			<h:form>
-			<h:link outcome="exibirFilme" value="Assistir">
-				<f:param name="titulo" value="#{f.titulo}"></f:param>
-				<f:param name="duracao" value="#{f.duracao}"></f:param>
-				<f:param name="ano" value="#{f.ano}"></f:param>
-				<f:param name="atores" value="#{f.atores}"></f:param>
-				<f:param name="genero" value="#{f.genero}"></f:param>
-				<f:param name="descricao" value="#{f.descricao}"></f:param>
-				<f:param name="likes" value="#{f.qtde_likes}"></f:param>				
-				<f:param name="dislikes" value="#{f.qtde_dislikes}"></f:param>
-				<f:param name="nome_arquivo" value="#{f.nome_arquivo}"></f:param>
-				<f:param name="nome_capa" value="#{f.nome_capa}"></f:param>				
-			</h:link>
-			</h:form>		
-			</h:column>
-					<h:column>
-					<h:form>
-					<h:commandButton value="Adicionar Favorito" action="#{favoritosForm.inserir2(f.id)}"></h:commandButton>
-					
-					</h:form>
-			</h:column>
-			
-				<h:column>
-					<h:form>
-					<h:commandLink action="#{filmeForm.darLike2(f.id)}"><h:outputText value="Like"/></h:commandLink>
-					</h:form>
-			</h:column>
-			
-			
-			
-			<h:column>
-					<h:form>
-					<h:commandButton value="Dislike" action="#{filmeForm.darDislike2(f.id)}"></h:commandButton>
-					</h:form>
-			</h:column>
-			
-			
-			
-			
-			
-			
-		</h:dataTable>
+				<h:link outcome="Player" value="Assistir">
+					<f:param name="titulo" value="#{f.titulo}"></f:param>
+					<f:param name="duracao" value="#{f.duracao}"></f:param>
+					<f:param name="ano" value="#{f.ano}"></f:param>
+					<f:param name="atores" value="#{f.atores}"></f:param>
+					<f:param name="genero" value="#{f.genero}"></f:param>
+					<f:param name="descricao" value="#{f.descricao}"></f:param>
+					<f:param name="likes" value="#{f.qtde_likes}"></f:param>
+					<f:param name="dislikes" value="#{f.qtde_dislikes}"></f:param>
+					<f:param name="nome_arquivo" value="#{f.nome_arquivo}"></f:param>
+					<f:param name="nome_capa" value="#{f.nome_capa}"></f:param>
+				</h:link>
+			</h:form>
+		</h:column>
+		<h:column>
+			<h:form>
+				<h:commandButton value="Adicionar Favorito"
+					action="#{favoritosForm.inserir2(f.id)}"></h:commandButton>
+
+			</h:form>
+		</h:column>
+
+		<h:column>
+			<h:form>
+				<h:commandLink action="#{filmeForm.darLike2(f.id)}">
+					<h:outputText value="Like" />
+				</h:commandLink>
+			</h:form>
+		</h:column>
 
 
- </nav>
+
+		<h:column>
+			<h:form>
+				<h:commandButton value="Dislike"
+					action="#{filmeForm.darDislike2(f.id)}"></h:commandButton>
+			</h:form>
+		</h:column>
+
+
+
+
+
+
+	</h:dataTable> </nav>
 
 	<!-- Navbar (sit on top) -->
 	<div class="w3-top">
 		<div class="w3-bar w3-white w3-card-4" id="myNavbar">
-		
-			<h:link outcome="#home" class="w3-bar-item w3-button w3-wide" style="padding:0px"><img alt="HOME" src="resources\img\Netflix_logo.png" width="58" height="58"></img></h:link>
+
+			<h:link outcome="#home" class="w3-bar-item w3-button w3-wide"
+				style="padding:0px">
+				<img alt="HOME" src="resources\img\Netflix_logo.png" width="58"
+					height="58"></img>
+			</h:link>
 			<!-- Right-sided navbar links -->
 			<div class="w3-right">
 				<h:link outcome="InicioUsuario" class="w3-bar-item w3-button">
@@ -167,104 +172,87 @@
 		</div>
 	</div>
 
-	<!-- Carousel -->
-	<div class="contain w3-padding-64">
 
-		<h1>Meus Favoritos</h1>
+	<div class="w3-padding-64">
 
-
-		<div class="row">
-		
-			<div class="row__inner">
-
-				<div class="tile">
-					<div class="tile__media">
-						<img class="tile__img"
-							src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-1.jpg"
-							alt=""> </img>
-					</div>
-					<div class="tile__details">
-						<div class="tile__title">Top Gear</div>
-					</div>
-				</div>
-				
-			</div>
-			
-		</div>
-		
-	</div>
-
-
-<h:dataTable value="#{filmeForm.filmesDoBanco}" var="f" rowClasses="par,impar" headerClass="titulo">
-			<h:column>
-				<h:outputText value="#{f.titulo}"></h:outputText>
-				<f:facet name="header">
+	<h:dataTable value="#{filmeForm.filmesDoBanco}" var="f"
+		styleClass="Sidetabela" headerClass="cabecalho"
+		columnClasses="ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, primeiro, ultimo, botao, botao, botao">
+		<h:column>
+			<h:outputText value="#{f.titulo}"></h:outputText>
+			<f:facet name="header">
 					Titulo
 				</f:facet>
-			</h:column>
-			<h:column>
-				<h:outputText value="#{f.nome_capa}" outcome="InicioUsuario"></h:outputText>
-				<f:facet name="header">
+		</h:column>
+		<h:column>
+			<h:outputText value="#{f.nome_capa}" outcome="InicioUsuario"></h:outputText>
+			<f:facet name="header">
 					Capa
 				</f:facet>
-			</h:column>
-			<h:column>
-				<a href="#openModal">Mais</a>
-				
-				<div id="openModal" class="modalDialog">
-		<div>
-			<a href="#close" title="Close" class="close">X</a>
+		</h:column>
+		<h:column>
+			<a href="#openModal">Mais</a>
 
-			<h2><h:outputText value="#{f.titulo}" outcome="InicioUsuario"></h:outputText></h2>
+			<div id="openModal" class="modalDialog">
+				<div>
+					<a href="#close" title="Close" class="close">X</a>
 
-			<h:link outcome="Player" class="w3-button w3-wide"
-				style="padding:0px">
-				<img alt="HOME" src="resources\img\Netflix_logo.png" width="58"
-					height="58"></img>
-			</h:link>
-			<br />
-			ID: <h:outputText value="#{f.id}" outcome="InicioUsuario"></h:outputText>
-			<br />
-			Descrição: <h:outputText value="#{f.descricao}" outcome="InicioUsuario"></h:outputText>
-			<br />
-			Duração: <h:outputText value="#{f.duracao}" outcome="InicioUsuario"></h:outputText>
-			<br />
-			Ano: <h:outputText value="#{f.ano}" outcome="InicioUsuario"></h:outputText>
-			<br />
-			Gênero: <h:outputText value="#{f.genero}" outcome="InicioUsuario"></h:outputText>
-			<br />
-			Atores: <h:outputText value="#{f.atores}" outcome="InicioUsuario"></h:outputText>
-			<br />
-			Likes: <h:outputText value="#{f.qtde_likes}" outcome="InicioUsuario"></h:outputText>
-			<br />
-			Dislikes: <h:outputText value="#{f.qtde_dislikes}" outcome="InicioUsuario"></h:outputText>
-			<br />
-			
-			<p>
-			
-			<h:form>
+					<h2>
+						<h:outputText value="#{f.titulo}" outcome="InicioUsuario"></h:outputText>
+					</h2>
+
+					<h:link outcome="Player" class="w3-button w3-wide"
+						style="padding:0px">
+						<img alt="HOME" src="resources\img\Netflix_logo.png" width="58"
+							height="58"></img>
+					</h:link>
+					<br /> ID:
+					<h:outputText value="#{f.id}" outcome="InicioUsuario"></h:outputText>
+					<br /> Descrição:
+					<h:outputText value="#{f.descricao}" outcome="InicioUsuario"></h:outputText>
+					<br /> Duração:
+					<h:outputText value="#{f.duracao}" outcome="InicioUsuario"></h:outputText>
+					<br /> Ano:
+					<h:outputText value="#{f.ano}" outcome="InicioUsuario"></h:outputText>
+					<br /> Gênero:
+					<h:outputText value="#{f.genero}" outcome="InicioUsuario"></h:outputText>
+					<br /> Atores:
+					<h:outputText value="#{f.atores}" outcome="InicioUsuario"></h:outputText>
+					<br /> Likes:
+					<h:outputText value="#{f.qtde_likes}" outcome="InicioUsuario"></h:outputText>
+					<br /> Dislikes:
+					<h:outputText value="#{f.qtde_dislikes}" outcome="InicioUsuario"></h:outputText>
+					<br />
+
+					<p>
+
+						<h:form>
 		Avaliar (digite o ID): <h:inputText value="#{filmeForm.idBusca}"></h:inputText>
-		<h:commandButton value="Like" action="#{filmeForm.darLike}"></h:commandButton>
-		<i class="fa fa-thumbs-o-up"></i>
-		<h:commandButton value="Dislike" action="#{filmeForm.darDislike}"></h:commandButton> <i class="fa fa-thumbs-o-down"></i>
-		</h:form>
-		
-			</p>
-			<br />
+							<h:commandButton value="Like" action="#{filmeForm.darLike}"></h:commandButton>
+							<i class="fa fa-thumbs-o-up"></i>
+							<h:commandButton value="Dislike" action="#{filmeForm.darDislike}"></h:commandButton>
+							<i class="fa fa-thumbs-o-down"></i>
+						</h:form>
 
-			<h:form>
-			Remover dos Favoritos (informe o ID do filme): <h:inputText value="#{filmeForm.idfilme}" ></h:inputText>
-			<h:commandButton value="Favoritar" action="#{filmeForm.remover}"></h:commandButton>
-</h:form>
+					</p>
+					<br />
 
-		</div>
-	</div>
-				
-				<f:facet name="header">
+					<h:form>
+			Remover dos Favoritos (informe o ID do filme): <h:inputText
+							value="#{filmeForm.idfilme}"></h:inputText>
+						<h:commandButton value="Favoritar" action="#{filmeForm.remover}"></h:commandButton>
+					</h:form>
+
+				</div>
+			</div>
+
+			<f:facet name="header">
 					Ver Filme
 				</f:facet>
-			</h:column>
-		</h:dataTable>
+		</h:column>
+	</h:dataTable>
+	
+	</div>
 
 
 	<script>

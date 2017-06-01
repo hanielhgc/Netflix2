@@ -133,7 +133,7 @@
 
 		<h:column>
 			<h:form>
-				<h:link outcome="exibirFilme" value="Assistir">
+				<h:link outcome="Player" value="Assistir">
 					<f:param name="titulo" value="#{f.titulo}"></f:param>
 					<f:param name="duracao" value="#{f.duracao}"></f:param>
 					<f:param name="ano" value="#{f.ano}"></f:param>
@@ -196,8 +196,8 @@
 			<!-- Right-sided navbar links -->
 			<div class="w3-right">
 				<h:form>
-					<!-- <h:link outcome="Favoritos" class="w3-bar-item w3-button">
-						<i class="fa fa-star"></i> Favoritos</h:link>  -->
+					<h:link outcome="Favoritos" class="w3-bar-item w3-button">
+						<i class="fa fa-star"></i> Favoritos</h:link>
 					<h:link outcome="EditarUsuario" class="w3-bar-item w3-button">
 						<i class="fa fa-user"></i>&nbsp;<h:outputText
 							value="#{usuarioLogado.nome}"></h:outputText>
@@ -232,7 +232,7 @@
 			<!-- </c:forEach> -->
 
 		</div>
-		
+
 		<!-- Exibir Listas -->
 
 		<h:form>
@@ -289,9 +289,10 @@
 						<h:link outcome="Player" class="w3-button w3-wide"
 							style="padding:0px">
 							<h:graphicImage library="img" name="#{f.nome_capa}" width="250"
-					height="100"></h:graphicImage>
-					
+								height="100"></h:graphicImage>
+
 						</h:link>
+
 						<br /> ID:
 						<h:outputText value="#{f.id}" outcome="InicioUsuario"></h:outputText>
 						<br /> Descrição:
@@ -359,7 +360,7 @@
 						action="#{filmeForm.darDislike2(f.id)}"></h:commandButton>
 				</h:form>
 			</h:column>  -->
-			
+
 		</h:dataTable>
 
 
@@ -412,7 +413,7 @@
 						<h:link outcome="Player" class="w3-button w3-wide"
 							style="padding:0px">
 							<h:graphicImage library="img" name="#{f.nome_capa}" width="250"
-					height="100"></h:graphicImage>
+								height="100"></h:graphicImage>
 						</h:link>
 						<br /> ID:
 						<h:outputText value="#{f.id}" outcome="InicioUsuario"></h:outputText>
@@ -535,7 +536,7 @@
 						<h:link outcome="Player" class="w3-button w3-wide"
 							style="padding:0px">
 							<h:graphicImage library="img" name="#{f.nome_capa}" width="250"
-					height="100"></h:graphicImage>
+								height="100"></h:graphicImage>
 						</h:link>
 						<br /> ID:
 						<h:outputText value="#{f.id}" outcome="InicioUsuario"></h:outputText>
@@ -581,7 +582,7 @@
 
 			</h:column>
 
-		<!--	<h:column>
+			<!--	<h:column>
 				<h:form>
 					<h:commandButton value="Adicionar Favorito"
 						action="#{favoritosForm.inserir2(f.id)}"></h:commandButton>
